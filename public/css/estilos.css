@@ -22,3 +22,60 @@ body {
    height: 400px;
    margin: auto;
 }
+
+.w-70 {
+   width: 70%;
+}
+
+.log-in .button {
+   padding: 5px;
+  width: 90%;
+  background-color: #FFCF96;
+  border-color: #FFCF96;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.log-in .input {
+   width: 90%;
+  padding: 5px;
+  border-color: #ffcf96;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 10px;
+  background-color: #0000;
+  display: inline-block;
+}
+
+.log-in .input input {
+   border-style: none;
+   background-color: #fff0;
+   color: #fffc;
+   width: inherit;
+   margin-left: 30px;
+}
+
+.log-in .input img {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   margin-left: 2px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.log-in h1 {
+   color: #FFCF96;
+   font-size: 30px;
+   margin: 0px;
+}
+
+.log-in a {
+   font-size: 12px;
+   color: #ffffff98;
+}

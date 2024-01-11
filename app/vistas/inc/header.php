@@ -10,12 +10,13 @@
 </head>
 <body>
     <div class="navbar navbar-expand-lg navbar-dark bg-dark py-3 text-light p-5 position-relative">
-        <div class="w-50 position-relative m-auto"> 
+        <div class="w-70 position-relative m-auto"> 
             <div class="float-left">
                 <h1>LOGROFILM</h1>
             </div>
             <div class="float-left position-absolute end-0 translate-middle-x top-50 translate-middle-y">
                 <a href="<?php echo RUTA_URL ;?> /paginas/pagina_principal/">Home</a> 
+                <a href="<?php echo RUTA_URL ;?> /paginas/cines/">Cines</a>
                 <a><?php echo $_SESSION["username"]?>
                 <a href="<?php echo RUTA_URL ;?> /paginas/cerrar/">Cerrar sesion</a>
             </div>

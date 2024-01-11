@@ -16,11 +16,7 @@ define('RUTA_APP', dirname(dirname(__FILE__)));
 define ('RUTA_URL', 'http://localhost:5500/logrofilm');
 
 //define ('NOMBRESITIO', '_NOMBRE_SITIO');
-<<<<<<< HEAD
-define ('NOMBRESITIO', 'ED 23 - 24s');
-=======
 define ('NOMBRESITIO', 'LogroFilm');
->>>>>>> 93c22a552ef63a348b673ae211521dea8320869c
 
 // Cargar archivo INI si es necesario.
 //$config = parse_ini_file(RUTA_APP . '/config/config.ini', true);

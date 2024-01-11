@@ -6,6 +6,19 @@ body {
    float: right;
   }
   
-  .float-left {
-      float: left;
-  }
+.float-left {
+   float: left;
+}
+
+.inicio {
+   background-image: url("../img/fondo.png");
+}
+
+.log-in {
+   background-color: #000c;
+   width: 350px;
+   text-align: center;
+   color: white;
+   height: 400px;
+   margin: auto;
+}

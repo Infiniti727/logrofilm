@@ -7,19 +7,18 @@
             
         }
 
-        public function index(){
-            $a = 0;
-            if(isset($_POST["usuario"])){
-                header('Location: /logrofilm/paginas/pagina_principal');
-                $a= 1;
-            }
-
+        public function index(){     
+            
             $datos = [
                 'titulo' => 'ED 23-24',
-                'a' => $a
             ];
 
-            $this->vista('paginas/inicio', $datos);    
+            if(isset($_SESSION['username'])){
+                header('Location: /logrofilm/paginas/pagina_principal');
+            } else {
+                $this->vista('paginas/inicio', $datos); 
+            }
+               
         }
 
         public function validacion(){
@@ -45,16 +44,27 @@
 
         public function pagina_principal(){
             
+
             $datos = [
                 'titulo' => 'ED 23-24'
             ];
 
-            $this->vista('paginas/pagina_principal', $datos);    
+            if(isset($_SESSION['username'])){
+                $this->vista('paginas/pagina_principal', $datos); 
+                
+            } else {
+                header("Location: /logrofilm/paginas/");
+            }
         }
 
         public function enviar(){
             $Mailer = $this->modelo('Correo');
 
             $Mailer->enviar();
+        }
+
+        public function cerrar(){
+            session_destroy();
+            header("Location: /logrofilm/paginas/");
         }
     }

@@ -8,6 +8,5 @@
 
             <input type="submit" value="Enviar">
     </form>
-    <?php echo $datos["a"]?>
 </body>
 </html>

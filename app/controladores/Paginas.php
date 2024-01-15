@@ -21,6 +21,20 @@
                
         }
 
+        public function sing_up(){     
+            
+            $datos = [
+                'titulo' => 'ED 23-24',
+            ];
+
+            if(isset($_SESSION['username'])){
+                header('Location: /logrofilm/paginas/pagina_principal');
+            } else {
+                $this->vista('paginas/crear_cuenta', $datos); 
+            }
+               
+        }
+
         public function validacion(){
             $usuario_no_existe = true;
             $modelo = $this->modelo('Usuario');

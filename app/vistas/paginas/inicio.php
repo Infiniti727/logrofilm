@@ -11,7 +11,7 @@
 <body class="inicio">
     <div class="w-100">
     <form class="log-in position-absolute start-50 translate-middle top-50" action="<?php echo RUTA_URL ;?> /paginas/validacion/" method="post">
-        <h1>Inicio de sesión</h1>
+        <h1>Iniciar sesión</h1>
         <a>Introduzca los datos de su cuenta para iniciar sesión</a>  
         <br>
         <br>
@@ -28,6 +28,8 @@
         <br>
         <br>
         <input class="button" type="submit" value="Iniciar sesión">
+        <br>
+        <a>¿No tienes una cuenta? </a> <a href="<?php echo RUTA_URL ;?>/paginas/sing_up">Create una</a> 
     </form>
     </div>
 </body>

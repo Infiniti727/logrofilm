@@ -46,7 +46,7 @@
                     if($_POST["contraseña"] == $row->contraseña){
                         $_SESSION['username'] = $_POST["usuario"];
                         $_SESSION["password"] = $_POST["contraseña"];
-                        $_SESSION["email"] = $modelo->obtenerEmail($_POST["usuario"])[0];
+                        $_SESSION["email"] = $modelo->obtenerEmail($_POST["usuario"])->email;
                         header('Location: /logrofilm/paginas/pagina_principal');
                     } else {
                         header("Location: /logrofilm/paginas/error/");

@@ -45,4 +45,14 @@ class Usuario{
         $this->bd->query("SELECT admin FROM usuario where nombre = '".$nombre."'");
         return $this->bd->registro()->admin;
     }
+
+    public function obtenerID($id){
+        $this->bd->query("SELECT * FROM usuario where id = '".$id."'");
+        return $this->bd->registro();
+    }
+
+    public function cambiarActivada($id, $estado){
+        $this->bd->query("UPDATE `usuario` SET `desactivada` = '".$estado."' WHERE `usuario`.`id` = ".$id.";");
+        $this->bd->execute();
+    }
 }

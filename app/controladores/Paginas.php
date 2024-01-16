@@ -101,8 +101,37 @@
             $Mailer->enviar();
         }
 
+        public function panel(){
+            $this->vista('paginas/panel_control'); 
+        }
+
+        public function panelU(){
+            $modelo = $this->modelo("Usuario");
+            $usuarios = $modelo->obtenerUsuarios();
+            $datos = [
+                'usuarios' => $usuarios,
+            ];
+
+            $this->vista('paginas/panel_usuarios', $datos); 
+        }
+
+        public function panelP(){
+            $this->vista('paginas/panel_peliculas'); 
+        }
+
         public function cerrar(){
             session_destroy();
             header("Location: /logrofilm/paginas/");
+        }
+
+        public function activar_desactivar($id){
+            $modelo = $this->modelo("Usuario");
+            $usuario = $modelo->obtenerID($id);
+            if($usuario->desactivada){
+                $modelo->cambiarActivada($id, 0);
+            } else {
+                $modelo->cambiarActivada($id, 1);
+            }
+            header("Location: /logrofilm/paginas/panelU/");
         }
     }

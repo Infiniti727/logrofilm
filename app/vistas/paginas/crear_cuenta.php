@@ -23,7 +23,7 @@
         <br>
         <div class="input position-relative">
             <img class="top-50 translate-middle-y" src="http://localhost/logrofilm/public/img/mail.png" alt="">
-            <input type="text" id="usuario" name="usuario" placeholder="Email" required><br>
+            <input type="text" id="email" name="email" placeholder="Email" required><br>
         </div>
         <br>
         <br>

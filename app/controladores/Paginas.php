@@ -56,6 +56,19 @@
             }   
         }
 
+        public function validacion_2(){
+            $modelo = $this->modelo('Usuario');
+            if($modelo->ComprobarNombre($_POST["usuario"]) == 0){
+                if($modelo->ComprobarEmail($_POST["email"]) == 0){
+                    $modelo->crearUsuario($_POST["usuario"],$_POST["email"],$_POST["contraseña"]); 
+                } else {
+                    header("Location: /logrofilm/paginas/sing_up/error");
+                }
+            } else {
+                header("Location: /logrofilm/paginas/sing_up/error");
+            }
+        }
+
         public function pagina_principal(){
             
 

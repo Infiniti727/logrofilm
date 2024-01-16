@@ -1,0 +1,22 @@
+{
+    "name": "jaf/logrofilm",
+    "description": "pagina web de reviews de peliculas",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "require-dev": {
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jaf\\Logrofilm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Infiniti727",
+            "email": "ancamaju.jaf@gmail.com"
+        }
+    ]
+}

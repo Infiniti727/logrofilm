@@ -20,17 +20,19 @@ class Usuario{
     }
 
     public function crearUsuario($nombre,$email,$contraseña) {
-        $this->bd->query("INSERT INTO `usuario` (`id`, `nombre`, `email`, `contraseña`, `desactivada`, `admin`) VALUES (NULL, $nombre, $email, $contraseña, '0', '0');");
+        $this->bd->query("INSERT INTO `usuario` (`id`, `nombre`, `email`, `contraseña`, `desactivada`, `admin`) VALUES (NULL,'".$nombre."', '".$email."', '".$contraseña."', '0', '0');");
         $this->bd->execute();
     }
 
     public function ComprobarNombre($nombre){
-        $this->bd->query("SELECT * FROM usuario where nombre = $nombre");
+        $this->bd->query("SELECT * FROM usuario where nombre = '".$nombre."'");
+        $this->bd->execute();
         return $this->bd->rowCount();
     }
 
     public function ComprobarEmail($email){
-        $this->bd->query("SELECT * FROM usuario where email = $email");
+        $this->bd->query("SELECT * FROM usuario where email = '".$email."'");
+        $this->bd->execute();
         return $this->bd->rowCount();
     }
 }

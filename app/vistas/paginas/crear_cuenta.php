@@ -16,27 +16,40 @@
         <br>
         <br>
         <div class="input position-relative">
-            <img class="top-50 translate-middle-y" src="http://localhost/logrofilm/public/img/perfil.png" alt="">
+            <img class="top-50 translate-middle-y" src="http://localhost:5500/logrofilm/public/img/perfil.png" alt="">
             <input type="text" id="usuario" name="usuario" placeholder="Nombre" required><br>
         </div>
         <br>
         <br>
         <div class="input position-relative">
-            <img class="top-50 translate-middle-y" src="http://localhost/logrofilm/public/img/mail.png" alt="">
+            <img class="top-50 translate-middle-y" src="http://localhost:5500/logrofilm/public/img/mail.png" alt="">
             <input type="text" id="email" name="email" placeholder="Email" required><br>
         </div>
         <br>
         <br>
         <div class="input position-relative">
-            <img class="top-50 translate-middle-y" src="http://localhost/logrofilm/public/img/contra.png" alt="">
+            <img class="top-50 translate-middle-y" src="http://localhost:5500/logrofilm/public/img/contra.png" alt="">
             <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required><br>
         </div>
         <br>
         <br>
         <input class="button" type="submit" value="Crear cuenta">
         <br>
-        <a>¿Ya tienes una cuenta? </a> <a href="<?php echo RUTA_URL ;?>/paginas/">Inicia sesión</a>  
+        <a>¿Ya tienes una cuenta? </a> <a href="<?php echo RUTA_URL ;?>/paginas/">Inicia sesión</a>
+        <br>
+        <?php 
+            if($datos["asd"] != 0){
+                echo "<a>";
+                if($datos["asd"] == "error1"){
+                    echo "El nombre de usuario ya está en uso";
+                } else{
+                    echo "La dirección de corréo electrónico ya esta en uso";
+                }
+                echo "</a>";
+            } 
+        ?>
     </form>
     </div>
+    
 </body>
 </html>

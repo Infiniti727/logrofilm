@@ -21,10 +21,11 @@
                
         }
 
-        public function sing_up(){     
+        public function sing_up($a=0){     
             
             $datos = [
                 'titulo' => 'ED 23-24',
+                "asd" => $a
             ];
 
             if(isset($_SESSION['username'])){
@@ -61,11 +62,14 @@
             if($modelo->ComprobarNombre($_POST["usuario"]) == 0){
                 if($modelo->ComprobarEmail($_POST["email"]) == 0){
                     $modelo->crearUsuario($_POST["usuario"],$_POST["email"],$_POST["contraseña"]); 
+                    $_SESSION['username'] = $_POST["usuario"];
+                    $_SESSION["password"] = $_POST["contraseña"];
+                    header('Location: /logrofilm/paginas/pagina_principal');
                 } else {
-                    header("Location: /logrofilm/paginas/sing_up/error");
+                    header("Location: /logrofilm/paginas/sing_up/error2");
                 }
             } else {
-                header("Location: /logrofilm/paginas/sing_up/error");
+                header("Location: /logrofilm/paginas/sing_up/error1");
             }
         }
 

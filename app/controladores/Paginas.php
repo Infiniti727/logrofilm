@@ -46,6 +46,7 @@
                     if($_POST["contraseña"] == $row->contraseña){
                         $_SESSION['username'] = $_POST["usuario"];
                         $_SESSION["password"] = $_POST["contraseña"];
+                        $_SESSION["email"] = $modelo->obtenerEmail($_POST["usuario"])[0];
                         header('Location: /logrofilm/paginas/pagina_principal');
                     } else {
                         header("Location: /logrofilm/paginas/error/");
@@ -59,12 +60,15 @@
 
         public function validacion_2(){
             $modelo = $this->modelo('Usuario');
+            $modelo2 = $this->modelo('Correo');
             if($modelo->ComprobarNombre($_POST["usuario"]) == 0){
                 if($modelo->ComprobarEmail($_POST["email"]) == 0){
                     $modelo->crearUsuario($_POST["usuario"],$_POST["email"],$_POST["contraseña"]); 
                     $_SESSION['username'] = $_POST["usuario"];
                     $_SESSION["password"] = $_POST["contraseña"];
-                    header('Location: /logrofilm/paginas/pagina_principal');
+                    $_SESSION["email"] = $_POST["email"];
+                    $modelo2->setDestinatario($_POST["email"]);
+                    $modelo2->enviar();
                 } else {
                     header("Location: /logrofilm/paginas/sing_up/error2");
                 }

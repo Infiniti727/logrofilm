@@ -35,4 +35,9 @@ class Usuario{
         $this->bd->execute();
         return $this->bd->rowCount();
     }
+
+    public function obtenerEmail($nombre){
+        $this->bd->query("SELECT email FROM usuario where nombre = '".$nombre."'");
+        return $this->bd->registro();
+    }
 }

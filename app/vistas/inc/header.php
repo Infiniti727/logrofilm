@@ -17,6 +17,11 @@
             <div class="float-left position-absolute end-0 translate-middle-x top-50 translate-middle-y">
                 <a href="<?php echo RUTA_URL ;?> /paginas/pagina_principal/">Home</a> 
                 <a href="<?php echo RUTA_URL ;?> /paginas/cines/">Cines</a>
+                <?php 
+                    if(isset($_SESSION["admin"])){
+                        echo "<a href='".RUTA_URL."/paginas/panel/'>Panel de control</a>";
+                    }
+                ?>
                 <a><?php echo $_SESSION["username"]?>
                 <a href="<?php echo RUTA_URL ;?> /paginas/cerrar/">Cerrar sesion</a>
             </div>

@@ -47,6 +47,9 @@
                         $_SESSION['username'] = $_POST["usuario"];
                         $_SESSION["password"] = $_POST["contraseña"];
                         $_SESSION["email"] = $modelo->obtenerEmail($_POST["usuario"])->email;
+                        if($modelo->esAdmin($_POST["usuario"])){
+                            $_SESSION["admin"] = true;
+                        }
                         header('Location: /logrofilm/paginas/pagina_principal');
                     } else {
                         header("Location: /logrofilm/paginas/error/");

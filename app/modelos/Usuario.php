@@ -40,4 +40,9 @@ class Usuario{
         $this->bd->query("SELECT email FROM usuario where nombre = '".$nombre."'");
         return $this->bd->registro();
     }
+
+    public function esAdmin($nombre){
+        $this->bd->query("SELECT admin FROM usuario where nombre = '".$nombre."'");
+        return $this->bd->registro()->admin;
+    }
 }

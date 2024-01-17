@@ -1,7 +1,7 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php';?>
 <h1 class="titulo_panel">PANEL DE USUARIOS</h1>
 <div>
-    <table class="tabla_usuarios">
+    <table class="table table-striped">
         <tr>
             <td>ID</td>
             <td>Nombre</td>
@@ -18,8 +18,16 @@
                     echo "<td>".$row->nombre."</td>";
                     echo "<td>".$row->email."</td>";
                     echo "<td>".$row->contraseña."</td>";
-                    echo "<td>".$row->desactivada."</td>";
-                    echo "<td>".$row->admin."</td>";
+                    if($row->desactivada == 0){
+                        echo "<td>false</td>";
+                    } else {
+                        echo "<td>true</td>";
+                    }
+                    if($row->admin == 0){
+                        echo "<td>false</td>";
+                    } else {
+                        echo "<td>true</td>";
+                    }
                     echo "<td><a class='btn' href='".RUTA_URL."/paginas/activar_desactivar/".$row->id."'>Cambiar</a></td>";
                 echo "</tr>";
             }

@@ -95,6 +95,7 @@ button:focus {
 }
 
 .tabla_usuarios {
+   width: 100%;
    border: solid 1px black;
    border-collapse: collapse;
    text-align: center;
@@ -110,3 +111,13 @@ button:focus {
    text-align: center;
 }
 
+table .btn {
+   width: 100%;
+}
+
+.btn {
+   --bs-btn-bg:#FFCF96 ;
+   --bs-btn-border-color:#FFCF96 ;
+   --bs-btn-hover-border-color: #bd9768;
+   --bs-btn-hover-bg : #bd9768;
+}

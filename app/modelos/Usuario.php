@@ -38,7 +38,7 @@ class Usuario{
 
     public function obtenerEmail($nombre){
         $this->bd->query("SELECT email FROM usuario where nombre = '".$nombre."'");
-        return $this->bd->registro();
+        return $this->bd->registro()->email;
     }
 
     public function esAdmin($nombre){
@@ -46,7 +46,7 @@ class Usuario{
         return $this->bd->registro()->admin;
     }
 
-    public function obtenerID($id){
+    public function obtenerPorID($id){
         $this->bd->query("SELECT * FROM usuario where id = '".$id."'");
         return $this->bd->registro();
     }

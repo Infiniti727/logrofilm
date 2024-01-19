@@ -10,7 +10,6 @@
         public function index(){     
             
             $datos = [
-                'titulo' => 'ED 23-24',
             ];
 
             if(isset($_SESSION['username'])){
@@ -24,7 +23,6 @@
         public function sing_up($a=0){     
             
             $datos = [
-                'titulo' => 'ED 23-24',
                 "asd" => $a
             ];
 
@@ -91,7 +89,6 @@
             
 
             $datos = [
-                'titulo' => 'ED 23-24'
             ];
 
             if(isset($_SESSION['username'])){
@@ -141,6 +138,10 @@
             header("Location: /logrofilm/paginas/panelU/");
         }
 
+        public function formP(){
+            $this->vista('paginas/formulario_peliculas');
+        }
+
         private function CallAPI($method, $url, $data = null){
             $curl = curl_init();
 
@@ -174,7 +175,7 @@
             }
 
             return json_decode($result);
-
-            
         }
+
+
     }

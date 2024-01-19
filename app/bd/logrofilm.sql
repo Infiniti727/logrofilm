@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-01-2024 a las 17:51:58
+-- Tiempo de generación: 19-01-2024 a las 16:32:50
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -43,10 +43,15 @@ CREATE TABLE `comentario` (
 CREATE TABLE `pelicula` (
   `id` int(11) NOT NULL,
   `id_fa` int(11) DEFAULT NULL,
-  `id_imbd` int(11) DEFAULT NULL,
   `nombre` varchar(100) NOT NULL,
   `nombre_esp` varchar(100) NOT NULL,
   `descripcion` varchar(1000) NOT NULL,
+  `Imagen` mediumtext NOT NULL,
+  `Año` int(11) NOT NULL,
+  `Duracion` int(11) NOT NULL,
+  `Casting` mediumtext NOT NULL,
+  `Directores` mediumtext NOT NULL,
+  `Generos` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`Generos`)),
   `rating` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -83,7 +88,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `email`, `contraseña`, `desactivada`, `admin`) VALUES
-(1, 'admin', 'admin@admin.com', 'admin', 0, 1);
+(1, 'admin', 'admin@admin.com', 'admin', 0, 1),
+(2, 'usuario', '', 'usuario', 0, 0),
+(18, 'ancamaju.jaf@gmail.com', 'ancamaju.jaf@gmail.com', 'ancamaju.jaf@gmail.com', 0, 0);
 
 --
 -- Índices para tablas volcadas
@@ -146,7 +153,7 @@ ALTER TABLE `rating`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restricciones para tablas volcadas

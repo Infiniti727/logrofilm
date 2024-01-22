@@ -35,6 +35,7 @@
         }
 
         public function validacion(){
+            $usuario_no_existe = true;
             $peticion = $this->CallAPI("GET","http://localhost:5500/logrofilm/ApiUsuarios/getUsuariosContra/");
             foreach ($peticion as $row) {
                 if($_POST["usuario"] == $row->nombre){
@@ -138,8 +139,16 @@
             header("Location: /logrofilm/paginas/panelU/");
         }
 
-        public function formP(){
-            $this->vista('paginas/formulario_peliculas');
+        public function formP($id){
+            $datos = [
+                "id" => $id
+            ];
+
+            $this->vista('paginas/formulario_peliculas',$datos);
+        }
+
+        public function anadirP(){
+            $this->vista('paginas/buscar_peli_backend');
         }
 
         private function CallAPI($method, $url, $data = null){

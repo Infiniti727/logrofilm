@@ -1,6 +1,6 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php';?>
+
 <form>
-    
     <a>Nombre</a>
     <input type="text" id="Nombre" name="Nombre" placeholder="Nombre" required><br>
     <a>Nombre español</a>

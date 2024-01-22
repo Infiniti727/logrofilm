@@ -1,0 +1,9 @@
+/.buildpath
+/.project
+/composer.lock
+/.settings
+/.vscode
+*/.env
+..phpunit.result.cache
+/.phpunit.cache
+/vendor/

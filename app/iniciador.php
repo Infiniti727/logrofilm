@@ -7,6 +7,8 @@
     //require_once __DIR__.'/../app/librerias/Core.php';
     require_once __DIR__."/../vendor/autoload.php";
 
+    require_once __DIR__."/../filmaffinity-api/public/index.php";
+
     //require_once __DIR__.'/../vendor/autoload.php';
     //Autoload php
     spl_autoload_register(function($nombreClase){

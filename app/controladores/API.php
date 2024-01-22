@@ -99,6 +99,11 @@ class API extends Controlador{
         echo json_encode($this->modelo2->obtenerPeliculas());
 
     }
+
+    public function obtenerUltimasPeliculas(){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        echo json_encode($this->modelo2->obtenerUltimasPeliculas());
+    }
    
    
     

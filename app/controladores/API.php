@@ -5,6 +5,7 @@ use Firebase\JWT\JWT;
 class API extends Controlador{
 
     var $modelo;
+    var $modelo2;
     var $key = 'clave_secreta'; 
     const DATA = '222';
     
@@ -81,7 +82,7 @@ class API extends Controlador{
     }
 
     public function cambiarEstadoDesactivada(){
-        header("Content-type: application/json', 'HTTP/1.1 200 OK");
+        header("Content-type: application/json', 'HTTP/1.1 201 OK");
         $this->modelo->cambiarActivada($_GET["id"],$_GET["estado"]);
     }
 
@@ -90,6 +91,13 @@ class API extends Controlador{
         
         $data = json_decode(file_get_contents("php://input"));
         $this->modelo2->anadirPelicula($data->id_fa,$data->nombre,$data->nombre_esp,$data->descripcion,$data->imagen,$data->año,$data->duracion,$data->directores,$data->casting, $data->generos);
+        return var_dump($data);
+    }
+
+    public function obtenerPeliculas(){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        echo json_encode($this->modelo2->obtenerPeliculas());
+
     }
    
    

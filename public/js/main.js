@@ -20,7 +20,7 @@ function buscarPeliB(){
       }
     };
 
-    xmlhttp.open("POST", "http://localhost/logrofilm/filmaffinity-api/public/search/simple", true);
+    xmlhttp.open("POST", "http://localhost:5500/logrofilm/filmaffinity-api/public/search/simple", true);
     xmlhttp.setRequestHeader("Content-type", "application/json");
     xmlhttp.send(requestBody);
 }
@@ -40,7 +40,7 @@ function mostrarPeliBusquedaB(data) {
         parsedData.response.results.forEach(function(result) {
             var resultItem = document.createElement('a');
             resultItem.textContent = result.title; // Ajusta la propiedad 'title' según la estructura de tu respuesta
-            resultItem.href = "http://localhost/logrofilm/paginas/formP/"+result.id;
+            resultItem.href = "http://localhost:5500/logrofilm/paginas/formP/"+result.id;
             resultItem.classList.add("fs-1");
             resultsContainer.appendChild(resultItem);
             var resultItem = document.createElement('br');
@@ -68,19 +68,67 @@ function mostrarPeliBusquedaB(data) {
       
     if (this.readyState == 4 && this.status == 200) {
       var parsedData = JSON.parse(this.responseText);
-      document.getElementById('Nombre').value = parsedData.response.originalTitle;
-      document.getElementById('Nombre_esp').value = parsedData.response.title;
+      document.getElementById('nombre').value = parsedData.response.originalTitle;
+      document.getElementById('nombre_esp').value = parsedData.response.title;
       document.getElementById('id_fa').value = parsedData.response.filmAfinityId;
-      document.getElementById('Sinopsis').value = parsedData.response.synopsis;
-      document.getElementById('Imagen').value = parsedData.response.coverUrl;
-      document.getElementById('Año').value = parsedData.response.year;
-      document.getElementById('Duracion').value = parsedData.response.duration;
-      document.getElementById('Casting').value = parsedData.response.cast;
-      document.getElementById('Directores').value = parsedData.response.directors;
-      document.getElementById('Generos').value = parsedData.response.genres;
+      document.getElementById('descripcion').value = parsedData.response.synopsis;
+      document.getElementById('imagen').value = parsedData.response.coverUrl;
+      document.getElementById('año').value = parsedData.response.year;
+      document.getElementById('duracion').value = parsedData.response.duration;
+      document.getElementById('casting').value = parsedData.response.cast;
+      document.getElementById('directores').value = parsedData.response.directors;
+      document.getElementById('generos').value = parsedData.response.genres;
     }
     };
   
-    xmlhttp.open("GET", "http://localhost/logrofilm/filmaffinity-api/public/films/"+$id, true);
+    xmlhttp.open("GET", "http://localhost:5500/logrofilm/filmaffinity-api/public/films/"+$id, true);
+    xmlhttp.send();
+  }
+
+  function rellenarTablaPeli(){
+    var tabla = document.getElementById("tabla_pelis");
+
+    if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+  
+    xmlhttp.onreadystatechange = function() {
+      
+    if (this.readyState == 4 && this.status == 200) {
+      
+      var parsedData = JSON.parse(this.responseText);
+
+      parsedData.forEach(function(result) {
+        var row = document.createElement('tr');
+        var column = document.createElement("td");
+        column.innerHTML = result.id;
+        row.appendChild(column);
+        var column = document.createElement("td");
+        column.innerHTML = result.id_fa;
+        row.appendChild(column);
+        var column = document.createElement("td");
+        column.innerHTML = result.nombre;
+        row.appendChild(column);
+        var column = document.createElement("td");
+        column.innerHTML = result.nombre_esp;
+        row.appendChild(column);
+        var column = document.createElement("td");
+        var a = document.createElement("a");
+        a.classList.add("btn");
+        a.href = "http://localhost:5500/logrofilm/paginas/editarP/"+result.id;
+        a.innerText = "Editar";
+        column.appendChild(a);
+        row.appendChild(column);
+        tabla.appendChild(row);
+    });
+
+      }
+    };
+  
+    xmlhttp.open("GET", "http://localhost:5500/logrofilm/API/obtenerPeliculas", true);
     xmlhttp.send();
   }

@@ -2,7 +2,7 @@
 
 use Firebase\JWT\JWT;
 
-class ApiUsuarios extends Controlador{
+class API extends Controlador{
 
     var $modelo;
     var $key = 'clave_secreta'; 
@@ -11,6 +11,7 @@ class ApiUsuarios extends Controlador{
     function __construct()
     {
         $this->modelo = $this->modelo('Usuario');
+        $this->modelo2 = $this->modelo('Pelicula');
     }
 
      /**
@@ -82,6 +83,13 @@ class ApiUsuarios extends Controlador{
     public function cambiarEstadoDesactivada(){
         header("Content-type: application/json', 'HTTP/1.1 200 OK");
         $this->modelo->cambiarActivada($_GET["id"],$_GET["estado"]);
+    }
+
+    public function anadirPelicula(){
+        header("Content-Type: application/json', 'HTTP/1.1 201 OK");
+        
+        $data = json_decode(file_get_contents("php://input"));
+        $this->modelo2->anadirPelicula($data->id_fa,$data->nombre,$data->nombre_esp,$data->descripcion,$data->imagen,$data->año,$data->duracion,$data->directores,$data->casting, $data->generos);
     }
    
    

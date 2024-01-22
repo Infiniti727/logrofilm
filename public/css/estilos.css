@@ -121,3 +121,29 @@ table .btn {
    --bs-btn-hover-border-color: #bd9768;
    --bs-btn-hover-bg : #bd9768;
 }
+
+.fs-1:link {
+   color: black;
+   text-decoration: none;
+}
+
+.fs-1:visited {
+   color: black;
+}
+
+.w-45 {
+   width: 45%;
+}
+
+.w-49 {
+   width: 49%;
+}
+
+.h-input-sinopsis {
+   height: 138px;
+}
+
+.fw-bold {
+   color:black;
+   text-decoration: none;
+}

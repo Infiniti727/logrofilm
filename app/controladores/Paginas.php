@@ -87,13 +87,27 @@
         }
 
         public function anadirPelicula(){
+            $url =  $_POST["imagen"];  
+  
+            $img = "img/".$_POST["id_fa"].".png";  
+            
+            $context = stream_context_create([
+                'http' => [
+                    'header' => 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+                ],
+            ]);
+
+            file_put_contents($img, file_get_contents($url,false, $context)); 
+
+
+
             $datos = [
                 "id_fa" => $_POST["id_fa"],
                 "nombre" => $_POST["nombre"],
                 "nombre_esp" => $_POST["nombre_esp"],
                 "descripcion" => $_POST["descripcion"],
                 "duracion" => $_POST["duracion"],
-                "imagen" => $_POST["imagen"],
+                "imagen" => "http://localhost:5500/logrofilm/public/img/".$_POST["id_fa"].".png",
                 "año" => $_POST["año"],
                 "casting" => $_POST["casting"],
                 "directores" => $_POST["directores"],

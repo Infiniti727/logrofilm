@@ -9,9 +9,20 @@ class Pelicula{
 
     }
 
-    public function obtenerPeliculas(){
-        $this->bd->query("SELECT * FROM pelicula  ORDER BY id DESC LIMIT 5");
+    public function obtenerTodasPeliculas(){
+        $this->bd->query("SELECT * FROM pelicula");
         return $this->bd->registros();
+    }
+
+
+    public function obtenerPeliculas(){
+        $this->bd->query("SELECT * FROM pelicula  ORDER BY id DESC LIMIT 6");
+        return $this->bd->registros();
+    }
+
+    public function obtenerPeliculaID($id){
+        $this->bd->query("SELECT * FROM pelicula where id = ".$id);
+        return $this->bd->registro();
     }
 
     public function anadirPelicula($id_fa,$nombre,$nombre_esp,$descripcion,$imagen,$año,$duracion,$directores,$casting, $generos){

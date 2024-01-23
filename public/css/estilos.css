@@ -163,3 +163,46 @@ table .btn {
    --bs-btn-hover-border-color: #bd9768;
    --bs-btn-hover-bg : #bd9768;
 }
+
+.peli {
+   width: fit-content;
+}
+
+.peli img {
+   width: 400px;
+   border-radius: 30px;
+}
+
+.peli p {
+   text-align: center;
+}
+
+.peli:hover {
+   cursor: pointer;
+}
+
+#pelis_nuevas {
+   display: flex;
+   justify-content: space-between;
+   max-width: 1300px;
+   margin: auto;
+   flex-wrap: wrap;
+}
+
+#detalles_peli {
+   
+   margin: auto;
+   margin-top: 30px;
+   display: flex;
+   max-width: 1300px;
+   justify-content: space-between;
+}
+
+#imagen img {
+   width: 500px;
+   border-radius: 30px;
+}
+
+.detalles {
+   margin-left: 10px;
+}

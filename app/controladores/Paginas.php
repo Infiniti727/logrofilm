@@ -173,6 +173,24 @@
             $this->vista('paginas/buscar_peli_backend');
         }
 
+        public function peli($id){
+
+            $peli =$this->CallAPI("GET","http://localhost:5500/logrofilm/API/obtenerPeliculaID/".$id);
+            $datos = [
+                "id_fa" => $peli->id_fa,
+                "nombre" => $peli->nombre,
+                "nombre_esp" => $peli->nombre_esp,
+                "descripcion" => $peli->descripcion,
+                "duracion" => $peli->duracion,
+                "imagen" => $peli->imagen,
+                "año" => $peli->año,
+                "casting" => $peli->casting,
+                "directores" => $peli->directores,
+                "generos" => $peli->generos
+            ];
+            $this->vista('paginas/peli', $datos);
+        }
+
         private function CallAPI($method, $url, $data = null){
             $curl = curl_init();
 

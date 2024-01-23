@@ -129,6 +129,6 @@ function mostrarPeliBusquedaB(data) {
       }
     };
   
-    xmlhttp.open("GET", "http://localhost:5500/logrofilm/API/obtenerPeliculas", true);
+    xmlhttp.open("GET", "http://localhost:5500/logrofilm/API/obtenerTodasPeliculas", true);
     xmlhttp.send();
   }

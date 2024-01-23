@@ -191,6 +191,10 @@
             $this->vista('paginas/peli', $datos);
         }
 
+        public function cines(){
+            $this->vista('paginas/cines');
+        }
+
         private function CallAPI($method, $url, $data = null){
             $curl = curl_init();
 

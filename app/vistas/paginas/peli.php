@@ -40,6 +40,9 @@
         <a> Duracion: <?php echo $datos["duracion"]?></a><br><br>
 
         <p><?php echo $datos["descripcion"]?></p>
+        <a> Directores: <?php echo $datos["directores"]?></a><br>
+        <a> Actores: <?php echo $datos["casting"]?></a><br>
+        <a> Categorias: <?php echo $datos["generos"]?></a><br>
         
     </div>
     

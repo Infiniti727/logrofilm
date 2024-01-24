@@ -16,19 +16,19 @@
         <br>
         <br>
         <div class="input position-relative">
-            <img class="top-50 translate-middle-y" src="http://localhost:5500/logrofilm/public/img/perfil.png" alt="">
+            <img class="top-50 translate-middle-y" src="http://localhost/logrofilm/public/img/perfil.png" alt="">
             <input type="text" id="usuario" name="usuario" placeholder="Nombre" required><br>
         </div>
         <br>
         <br>
         <div class="input position-relative">
-            <img class="top-50 translate-middle-y" src="http://localhost:5500/logrofilm/public/img/mail.png" alt="">
+            <img class="top-50 translate-middle-y" src="http://localhost/logrofilm/public/img/mail.png" alt="">
             <input type="text" id="email" name="email" placeholder="Email" required><br>
         </div>
         <br>
         <br>
         <div class="input position-relative">
-            <img class="top-50 translate-middle-y" src="http://localhost:5500/logrofilm/public/img/contra.png" alt="">
+            <img class="top-50 translate-middle-y" src="http://localhost/logrofilm/public/img/contra.png" alt="">
             <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required><br>
         </div>
         <br>

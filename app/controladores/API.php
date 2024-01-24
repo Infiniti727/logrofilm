@@ -111,6 +111,12 @@ class API extends Controlador{
 
     }
 
+    public function editarPelicula(){
+        $data = json_decode(file_get_contents("php://input"));
+        $this->modelo2->editarPelicula($data->id,$data->id_fa,$data->nombre,$data->nombre_esp,$data->descripcion,$data->imagen,$data->año,$data->duracion,$data->directores,$data->casting, $data->generos);
+        return var_dump($data);
+    }
+
     public function obtenerTodasPeliculas(){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo2->obtenerTodasPeliculas());

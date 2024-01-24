@@ -25,7 +25,7 @@ function peliculasNuevas(){
             var div2 = document.createElement("div");
             div2.classList.add("peli");
             div2.onclick = function() {
-                window.location.href = "http://localhost/logrofilm%20/paginas/peli/"+result.id;
+                window.location.href = "http://localhost:5500/logrofilm%20/paginas/peli/"+result.id;
             }
             var img = document.createElement("img");
             var p = document.createElement("p");
@@ -38,6 +38,6 @@ function peliculasNuevas(){
       }
     };
 
-    xmlhttp.open("GET", "http://localhost/logrofilm/API/obtenerPeliculas/", true);
+    xmlhttp.open("GET", "http://localhost:5500/logrofilm/API/obtenerPeliculas/", true);
     xmlhttp.send();
 }

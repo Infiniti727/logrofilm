@@ -9,25 +9,7 @@
     <title><?php echo NOMBRESITIO; ?> </title>
 </head>
 <body onload="rellenarTablaPeli()">
-<div class="navbar navbar-expand-lg navbar-dark bg-dark py-3 text-light p-5 position-relative">
-        <div class="w-70 position-relative m-auto"> 
-            <div class="float-left">
-                <h1>LOGROFILM</h1>
-            </div>
-            <div class="float-left position-absolute end-0 translate-middle-x top-50 translate-middle-y">
-                <a class="link" href="<?php echo RUTA_URL ;?> /paginas/pagina_principal/">Home</a> 
-                <a class="link" href="<?php echo RUTA_URL ;?> /paginas/cines/">Cines</a>
-                <?php 
-                    if(isset($_SESSION["admin"])){
-                        echo "<a class='link' href='".RUTA_URL."/paginas/panel/'>Panel de control</a>";
-                    }
-                ?>
-                <a><?php echo $_SESSION["username"]?>
-                <a class="link" href="<?php echo RUTA_URL ;?> /paginas/cerrar/">Cerrar sesion</a>
-            </div>
-        </div>
-</div> 
-
+<?php require_once RUTA_APP.'/vistas/inc/Barra_nav.php';?>
 
 <h1 class="titulo_panel">PANEL DE PELICULAS</h1>
 <a class="btn ms-3 mb-3" href="<?php echo RUTA_URL ;?> /paginas/anadirP/">Añadir nueva</a>

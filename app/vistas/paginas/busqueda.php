@@ -8,5 +8,10 @@
     <link rel="stylesheet" type="text/css" href="<?php echo RUTA_URL?>/css/estilos.css">
     <title><?php echo NOMBRESITIO; ?> </title>
 </head>
-<body>
+<body onload='mostrarResultados(<?php echo json_encode($datos["resultados"]) ?>)'>
 <?php require_once RUTA_APP.'/vistas/inc/Barra_nav.php';?>
+<h1>Resultados</h1>
+<div id="resultados">
+    
+</div>
+<?php require_once RUTA_APP.'/vistas/inc/footer.php';?>

@@ -207,3 +207,16 @@ table .btn {
 .detalles {
    margin-left: 10px;
 }
+
+.barra_busqueda {
+   width: 100%;
+   background-color: #ffd0969c;
+   border-radius: 25px;
+   padding-left: 10px;
+   height: 35px;
+   border: none;
+}
+
+.logo {
+   width: 100px;
+}

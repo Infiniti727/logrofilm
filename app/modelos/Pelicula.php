@@ -41,5 +41,9 @@ class Pelicula{
         return $this->bd->registros();
     }
 
+    public function buscarPeliculas($entrada){
+        $this->bd->query("SELECT * FROM pelicula where nombre_esp like '%".$entrada."%'");
+        return $this->bd->registros();
+    }
     
 }

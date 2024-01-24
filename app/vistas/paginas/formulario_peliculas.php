@@ -9,24 +9,7 @@
     <title><?php echo NOMBRESITIO; ?> </title>
 </head>
 <body onload="rellenarFormularioPeli(<?php echo $datos['id'] ?>)">
-    <div class="navbar navbar-expand-lg navbar-dark bg-dark py-3 text-light p-5 position-relative">
-        <div class="w-70 position-relative m-auto"> 
-            <div class="float-left">
-                <h1>LOGROFILM</h1>
-            </div>
-            <div class="float-left position-absolute end-0 translate-middle-x top-50 translate-middle-y">
-                <a class="link" href="<?php echo RUTA_URL ;?> /paginas/pagina_principal/">Home</a> 
-                <a class="link" href="<?php echo RUTA_URL ;?> /paginas/cines/">Cines</a>
-                <?php 
-                    if(isset($_SESSION["admin"])){
-                        echo "<a class='link' href='".RUTA_URL."/paginas/panel/'>Panel de control</a>";
-                    }
-                ?>
-                <a><?php echo $_SESSION["username"]?>
-                <a class="link" href="<?php echo RUTA_URL ;?> /paginas/cerrar/">Cerrar sesion</a>
-            </div>
-        </div>
-</div>  
+<?php require_once RUTA_APP.'/vistas/inc/Barra_nav.php';?> 
 
 <h1 class="text-center">Añadir Pelicula</h1>
 
@@ -39,7 +22,7 @@
             <input class="w-100" type="text" id="nombre_esp" name="nombre_esp" placeholder="Nombre Español" required><br>
             <div class="justify-content-between d-flex">
                 <div class="w-49">
-                    <a class="fw-bold">Id firmaffinity</a><br>
+                    <a class="fw-bold">Id filmaffinity</a><br>
                     <input class="w-100" type="number" id="id_fa" name="id_fa" placeholder="Id Filmaffinity" required><br>
                 </div>
                 <div class="w-49">

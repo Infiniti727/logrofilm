@@ -121,6 +121,11 @@ class API extends Controlador{
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo2->obtenerTodasPeliculas());
     }
+
+    public function buscarPeliculas($entrada){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        echo json_encode($this->modelo2->buscarPeliculas($entrada));
+    }
    
     
     /**

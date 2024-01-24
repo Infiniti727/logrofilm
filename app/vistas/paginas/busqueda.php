@@ -10,8 +10,8 @@
 </head>
 <body onload='mostrarResultados(<?php echo json_encode($datos["resultados"]) ?>)'>
 <?php require_once RUTA_APP.'/vistas/inc/Barra_nav.php';?>
-<h1>Resultados</h1>
+<br><h1 class="text-center">Resultados</h1><br>
 <div id="resultados">
-    
+
 </div>
 <?php require_once RUTA_APP.'/vistas/inc/footer.php';?>

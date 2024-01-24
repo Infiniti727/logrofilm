@@ -23,6 +23,15 @@ function peliculasNuevas(){
 
         parsedData.forEach(function(result) {
             var div2 = document.createElement("div");
+            var div3 = document.createElement("div");
+            div3.classList.add("d-flex");
+            div3.classList.add("align-items-center");
+            div3.classList.add("justify-content-between");
+            var descripcion  = document.createElement("p");
+            descripcion.innerHTML = result.descripcion;
+            div3.classList.add("escondido");
+            div3.appendChild(descripcion);
+            div2.appendChild(div3);
             div2.classList.add("peli");
             div2.onclick = function() {
                 window.location.href = "http://localhost:5500/logrofilm%20/paginas/peli/"+result.id;

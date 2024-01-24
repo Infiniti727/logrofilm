@@ -172,9 +172,12 @@ function mostrarPeliBusquedaB(data) {
   function mostrarResultados(entrada){
     resultados = document.getElementById("resultados");
 
-    entrada.forEach(function(result){
+    /**entrada.forEach(function(result){
       padre = document.createElement("div");
       padre.classList.add("resultado");
+      padre.classList.add("d-flex");
+      padre.classList.add("align-items-center");
+      padre.classList.add("justify-content-between");
       div1 = document.createElement("div");
       imagen = document.createElement("img");
       imagen.src = result.imagen;
@@ -198,7 +201,31 @@ function mostrarPeliBusquedaB(data) {
       padre.appendChild(div4);
 
       resultados.appendChild(padre);
-    })
+    })**/
+
+    entrada.forEach(function(result) {
+      var div2 = document.createElement("div");
+      var div3 = document.createElement("div");
+      div3.classList.add("d-flex");
+      div3.classList.add("align-items-center");
+      div3.classList.add("justify-content-between");
+      var descripcion  = document.createElement("p");
+      descripcion.innerHTML = result.descripcion;
+      div3.classList.add("escondido");
+      div3.appendChild(descripcion);
+      div2.classList.add("peli");
+      div2.appendChild(div3);
+      div2.onclick = function() {
+          window.location.href = "http://localhost:5500/logrofilm%20/paginas/peli/"+result.id;
+      }
+      var img = document.createElement("img");
+      var p = document.createElement("p");
+      p.innerText = result.nombre_esp;
+      img.src = result.imagen;
+      div2.appendChild(img);
+      div2.appendChild(p);
+      resultados.appendChild(div2);
+  });
 
 
   }

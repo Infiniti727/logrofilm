@@ -165,6 +165,7 @@ table .btn {
 }
 
 .peli {
+   position: relative;
    width: fit-content;
 }
 
@@ -219,4 +220,36 @@ table .btn {
 
 .logo {
    width: 100px;
+}
+
+#resultados {
+   display: flex;
+   justify-content: space-between;
+   max-width: 1300px;
+   margin: auto;
+   flex-wrap: wrap;
+}
+
+.escondido {
+   width: 400px;
+   height: 566px;
+   border-radius: 30px;
+   position: absolute;
+   color: white;
+   background-color: #000c;
+   opacity: 0%;
+   padding: 10px;
+}
+
+.escondido:hover {
+   opacity: 100%;
+}
+
+
+.resultado {
+   margin: 10px;
+}
+
+.resultado img {
+   width: 150px;
 }

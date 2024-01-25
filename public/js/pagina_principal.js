@@ -5,8 +5,6 @@ document.body.onload =  function() {
 
 
 function peliculasNuevas(){
-    var div = document.getElementById('pelis_nuevas');
-
 
     if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -17,11 +15,18 @@ function peliculasNuevas(){
         }
 
     xmlhttp.onreadystatechange = function() {
+        cont = 0;
       if (this.readyState == 4 && this.status == 200) {
         
         var parsedData = JSON.parse(this.responseText);
 
         parsedData.forEach(function(result) {
+            if(cont < 4){
+                var div = document.getElementById('pelis_nuevas_1');
+            } else {
+                var div = document.getElementById('pelis_nuevas_2');
+            }
+            
             var div2 = document.createElement("div");
             var div3 = document.createElement("div");
             div3.classList.add("d-flex");
@@ -34,7 +39,7 @@ function peliculasNuevas(){
             div2.appendChild(div3);
             div2.classList.add("peli");
             div2.onclick = function() {
-                window.location.href = "http://localhost:5500/logrofilm%20/paginas/peli/"+result.id;
+                window.location.href = "http://localhost/logrofilm%20/paginas/peli/"+result.id;
             }
             var img = document.createElement("img");
             var p = document.createElement("p");
@@ -43,10 +48,11 @@ function peliculasNuevas(){
             div2.appendChild(img);
             div2.appendChild(p);
             div.appendChild(div2);
+            cont++;
         });
       }
     };
 
-    xmlhttp.open("GET", "http://localhost:5500/logrofilm/API/obtenerPeliculas/", true);
+    xmlhttp.open("GET", "http://localhost/logrofilm/API/obtenerPeliculas/", true);
     xmlhttp.send();
 }

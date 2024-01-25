@@ -48,4 +48,6 @@
     <input class="w-100" type="text" id="generos" name="generos" placeholder="Generos (En caso de varios, separa por comas)" required><br><br>
     <input class="button" type="submit" value="Añadir">
 </form>
-<?php require_once RUTA_APP.'/vistas/inc/footer.php';?>
+<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/main.js"></script>
+</body>
+</html>

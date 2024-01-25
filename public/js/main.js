@@ -20,7 +20,7 @@ function buscarPeliB(){
       }
     };
 
-    xmlhttp.open("POST", "http://localhost:5500/logrofilm/filmaffinity-api/public/search/simple", true);
+    xmlhttp.open("POST", "http://localhost/logrofilm/filmaffinity-api/public/search/simple", true);
     xmlhttp.setRequestHeader("Content-type", "application/json");
     xmlhttp.send(requestBody);
 }
@@ -40,7 +40,7 @@ function mostrarPeliBusquedaB(data) {
         parsedData.response.results.forEach(function(result) {
             var resultItem = document.createElement('a');
             resultItem.textContent = result.title; // Ajusta la propiedad 'title' según la estructura de tu respuesta
-            resultItem.href = "http://localhost:5500/logrofilm/paginas/formP/"+result.id;
+            resultItem.href = "http://localhost/logrofilm/paginas/formP/"+result.id;
             resultItem.classList.add("fs-1");
             resultsContainer.appendChild(resultItem);
             var resultItem = document.createElement('br');
@@ -81,7 +81,7 @@ function mostrarPeliBusquedaB(data) {
     }
     };
   
-    xmlhttp.open("GET", "http://localhost:5500/logrofilm/filmaffinity-api/public/films/"+$id, true);
+    xmlhttp.open("GET", "http://localhost/logrofilm/filmaffinity-api/public/films/"+$id, true);
     xmlhttp.send();
   }
 
@@ -111,7 +111,7 @@ function mostrarPeliBusquedaB(data) {
     }
     };
   
-    xmlhttp.open("GET", "http://localhost:5500/logrofilm/API/obtenerPeliculaID/"+$id, true);
+    xmlhttp.open("GET", "http://localhost/logrofilm/API/obtenerPeliculaID/"+$id, true);
     xmlhttp.send();
   }
 
@@ -149,7 +149,7 @@ function mostrarPeliBusquedaB(data) {
         var column = document.createElement("td");
         var a = document.createElement("a");
         a.classList.add("btn");
-        a.href = "http://localhost:5500/logrofilm/paginas/editarP/"+result.id;
+        a.href = "http://localhost/logrofilm/paginas/editarP/"+result.id;
         a.innerText = "Editar";
         column.appendChild(a);
         row.appendChild(column);
@@ -159,13 +159,13 @@ function mostrarPeliBusquedaB(data) {
       }
     };
   
-    xmlhttp.open("GET", "http://localhost:5500/logrofilm/API/obtenerTodasPeliculas", true);
+    xmlhttp.open("GET", "http://localhost/logrofilm/API/obtenerTodasPeliculas", true);
     xmlhttp.send();
   }
 
   function busqueda(texto) {
     if(event.key === 'Enter' && texto.value != " " ) {
-      window.location.href = "http://localhost:5500/logrofilm%20/paginas/busqueda/"+texto.value;   
+      window.location.href = "http://localhost/logrofilm%20/paginas/busqueda/"+texto.value;   
     }
 }
 
@@ -216,7 +216,7 @@ function mostrarPeliBusquedaB(data) {
       div2.classList.add("peli");
       div2.appendChild(div3);
       div2.onclick = function() {
-          window.location.href = "http://localhost:5500/logrofilm%20/paginas/peli/"+result.id;
+          window.location.href = "http://localhost/logrofilm%20/paginas/peli/"+result.id;
       }
       var img = document.createElement("img");
       var p = document.createElement("p");
@@ -228,4 +228,57 @@ function mostrarPeliBusquedaB(data) {
   });
 
 
+  }
+
+  function cargarComentarios(id) {
+    if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+  
+    xmlhttp.onreadystatechange = function() {
+      
+    if (this.readyState == 4 && this.status == 200) {
+      comentarios = document.getElementById("comentarios");
+      var parsedData = JSON.parse(this.responseText);
+      parsedData.forEach( function(result) {
+            comentario = document.createElement("div");
+            comentario.classList.add("comentario");
+            nombre = document.createElement("a");
+            nombre.id = result.id_usuario;
+            texto = document.createElement("p");
+            texto.innerText = result.comentario;
+            comentario.appendChild(nombre);
+            comentario.appendChild(texto);
+            comentarios.appendChild(comentario);
+            obtenerNombreUsuario(result.id_usuario);
+        });
+      }
+    }
+  
+    xmlhttp.open("GET", "http://localhost/logrofilm/API/obtenerComentariosPeli/"+id, true);
+    xmlhttp.send();
+  }
+
+  function obtenerNombreUsuario(id){
+    if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+  
+    xmlhttp.onreadystatechange = function() {
+      
+      if (this.readyState == 4 && this.status == 200) {
+        var parsedData = JSON.parse(this.responseText);
+        document.getElementById(id).innerHTML = "<b>"+ parsedData.nombre +"</b>";
+      }
+    }
+    xmlhttp.open("GET", "http://localhost/logrofilm/API/getUsuarioId/"+id, true);
+    xmlhttp.send();
   }

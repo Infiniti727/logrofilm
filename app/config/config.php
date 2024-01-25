@@ -11,9 +11,9 @@ define('DB_NOMBRE', 'logrofilm'); // Tu base de datos
 //Ruta de la aplicación. /app o /src
 define('RUTA_APP', dirname(dirname(__FILE__))); 
 
-//Ruta url Ejemplo: http://localhost:5500/ud5/mvc2app
+//Ruta url Ejemplo: http://localhost/ud5/mvc2app
 //define ('RUTA_URL', '_URL_');
-define ('RUTA_URL', 'http://localhost:5500/logrofilm');
+define ('RUTA_URL', 'http://localhost/logrofilm');
 
 //define ('NOMBRESITIO', '_NOMBRE_SITIO');
 define ('NOMBRESITIO', 'LogroFilm');

@@ -33,6 +33,7 @@
 
 
 <div id="map"></div>
+<h1 class="text-center mt-5" >Haz click en una de las localizaciones marcadas</h1>
 
 
 <!--<script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/mapa.js"></script>-->
@@ -63,8 +64,6 @@
   const ubicacionesCines = [
     
       { nombre: 'Teatro of Bretón de los Herreros', ubicacion: { lat: 42.46501665792584, lng: -2.4485148372461625 } , personalizado: true},
-       
-      { nombre: 'Filmoteca regional Rafael Azcona', ubicacion: { lat: 42.46413067845064, lng: -2.442718278388274 } , personalizado: true},
        
       { nombre: 'Cine Yelmo Premium Berceo', ubicacion: { lat: 42.46273522569608,  lng: -2.4203705282415173 } , personalizado: true},
       

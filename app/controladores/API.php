@@ -6,6 +6,7 @@ class API extends Controlador{
 
     var $modelo;
     var $modelo2;
+    var $modelo3;
     var $key = 'clave_secreta'; 
     const DATA = '222';
     
@@ -13,6 +14,7 @@ class API extends Controlador{
     {
         $this->modelo = $this->modelo('Usuario');
         $this->modelo2 = $this->modelo('Pelicula');
+        $this->modelo3 = $this->modelo("Comentario");
     }
 
      /**
@@ -57,6 +59,11 @@ class API extends Controlador{
     public function getAdmin($nombre){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo->esAdmin($nombre));
+    } 
+
+    public function getIdUsuario($nombre){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        echo json_encode($this->modelo->getIdUsuario($nombre));
     } 
 
     public function ComprobarNombre($nombre){
@@ -126,6 +133,18 @@ class API extends Controlador{
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo2->buscarPeliculas($entrada));
     }
+
+    public function obtenerComentariosPeli($id){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        echo json_encode($this->modelo3->obtenerComentariosPeli($id));
+    }
+
+    public function subirComentario(){
+        $data = json_decode(file_get_contents("php://input"));
+        $this->modelo3->subirComentario($data->id_peli,$data->id_usuario,$data->texto);
+        //return var_dump($data);
+    }
+   
    
     
     /**

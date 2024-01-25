@@ -16,7 +16,7 @@ class Pelicula{
 
 
     public function obtenerPeliculas(){
-        $this->bd->query("SELECT * FROM pelicula  ORDER BY id DESC LIMIT 6");
+        $this->bd->query("SELECT * FROM pelicula  ORDER BY id DESC LIMIT 8");
         return $this->bd->registros();
     }
 

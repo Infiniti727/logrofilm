@@ -36,15 +36,15 @@
 
         public function validacion(){
             $usuario_no_existe = true;
-            $peticion = $this->CallAPI("GET","http://localhost:5500/logrofilm/API/getUsuariosContra/");
+            $peticion = $this->CallAPI("GET","http://localhost/logrofilm/API/getUsuariosContra/");
             foreach ($peticion as $row) {
                 if($_POST["usuario"] == $row->nombre){
                     $usuario_no_existe = false;
                     if($_POST["contraseña"] == $row->contraseña){
                         $_SESSION['username'] = $_POST["usuario"];
                         $_SESSION["password"] = $_POST["contraseña"];
-                        $_SESSION["email"] = $this->CallAPI("GET","http://localhost:5500/logrofilm/API/getEmail/".$_POST["usuario"]);
-                        if($this->CallAPI("GET","http://localhost:5500/logrofilm/API/getAdmin/".$_POST["usuario"])){
+                        $_SESSION["email"] = $this->CallAPI("GET","http://localhost/logrofilm/API/getEmail/".$_POST["usuario"]);
+                        if($this->CallAPI("GET","http://localhost/logrofilm/API/getAdmin/".$_POST["usuario"])){
                             $_SESSION["admin"] = true;
                         }
                         header('Location: /logrofilm/paginas/pagina_principal');
@@ -60,8 +60,8 @@
 
         public function validacion_2(){
             $modelo2 = $this->modelo('Correo');
-            if($this->CallAPI("GET","http://localhost:5500/logrofilm/API/ComprobarNombre/".$_POST["usuario"]) == 0){
-                if($this->CallAPI("GET","http://localhost:5500/logrofilm/API/ComprobarEmail/".$_POST["email"]) == 0){
+            if($this->CallAPI("GET","http://localhost/logrofilm/API/ComprobarNombre/".$_POST["usuario"]) == 0){
+                if($this->CallAPI("GET","http://localhost/logrofilm/API/ComprobarEmail/".$_POST["email"]) == 0){
                     $datos = [
                         "nombre" => $_POST["usuario"],
                         "email" => $_POST["email"],
@@ -71,7 +71,7 @@
                     $datos_string = json_encode($datos);
                     var_dump($datos_string);
 
-                    $this->CallAPI("POST","http://localhost:5500/logrofilm/API/AnadirUsuario/",$datos_string); 
+                    $this->CallAPI("POST","http://localhost/logrofilm/API/AnadirUsuario/",$datos_string); 
                     $_SESSION['username'] = $_POST["usuario"];
                     $_SESSION["password"] = $_POST["contraseña"];
                     $_SESSION["email"] = $_POST["email"];
@@ -107,7 +107,7 @@
                 "nombre_esp" => $_POST["nombre_esp"],
                 "descripcion" => $_POST["descripcion"],
                 "duracion" => $_POST["duracion"],
-                "imagen" => "http://localhost:5500/logrofilm/public/img/".$_POST["id_fa"].".png",
+                "imagen" => "http://localhost/logrofilm/public/img/".$_POST["id_fa"].".png",
                 "año" => $_POST["año"],
                 "casting" => $_POST["casting"],
                 "directores" => $_POST["directores"],
@@ -117,7 +117,7 @@
             $datos_string = json_encode($datos);
             //var_dump($datos_string);
 
-            $this->CallAPI("POST","http://localhost:5500/logrofilm/API/anadirPelicula/",$datos_string); 
+            $this->CallAPI("POST","http://localhost/logrofilm/API/anadirPelicula/",$datos_string); 
             
             header("Location: /logrofilm/paginas/panelP/");
         }
@@ -131,7 +131,7 @@
         }
 
         public function busqueda($entrada){
-            $resultados = $this->CallAPI("GET","http://localhost:5500/logrofilm/API/buscarPeliculas/".$entrada);
+            $resultados = $this->CallAPI("GET","http://localhost/logrofilm/API/buscarPeliculas/".$entrada);
             $datos = [
                 "resultados" => $resultados
             ];
@@ -168,7 +168,7 @@
             $datos_string = json_encode($datos);
             //var_dump($datos_string);
 
-            $this->CallAPI("POST","http://localhost:5500/logrofilm/API/editarPelicula/",$datos_string); 
+            $this->CallAPI("POST","http://localhost/logrofilm/API/editarPelicula/",$datos_string); 
             
             header("Location: /logrofilm/paginas/panelP/");
         }
@@ -200,7 +200,7 @@
         public function panelU(){
             
             $datos = [
-                'usuarios' => $this->CallAPI("GET","http://localhost:5500/logrofilm/API/getUsuarios/")
+                'usuarios' => $this->CallAPI("GET","http://localhost/logrofilm/API/getUsuarios/")
             ];
 
             $this->vista('paginas/panel_usuarios', $datos); 
@@ -217,11 +217,11 @@
 
         public function activar_desactivar($id){
             
-            if($this->CallAPI("GET","http://localhost:5500/logrofilm/API/getDesactivada/".$id)){
-                $this->CallAPI("GET","http://localhost:5500/logrofilm/API/cambiarEstadoDesactivada/",["id"=>$id,"estado"=>1]);
+            if($this->CallAPI("GET","http://localhost/logrofilm/API/getDesactivada/".$id)){
+                $this->CallAPI("GET","http://localhost/logrofilm/API/cambiarEstadoDesactivada/",["id"=>$id,"estado"=>1]);
 
             } else {
-                $this->CallAPI("GET","http://localhost:5500/logrofilm/API/cambiarEstadoDesactivada/",["id"=>$id,"estado"=>0]);
+                $this->CallAPI("GET","http://localhost/logrofilm/API/cambiarEstadoDesactivada/",["id"=>$id,"estado"=>0]);
             }
             header("Location: /logrofilm/paginas/panelU/");
         }
@@ -240,8 +240,9 @@
 
         public function peli($id){
 
-            $peli =$this->CallAPI("GET","http://localhost:5500/logrofilm/API/obtenerPeliculaID/".$id);
+            $peli =$this->CallAPI("GET","http://localhost/logrofilm/API/obtenerPeliculaID/".$id);
             $datos = [
+                "id" => $id,
                 "id_fa" => $peli->id_fa,
                 "nombre" => $peli->nombre,
                 "nombre_esp" => $peli->nombre_esp,
@@ -258,6 +259,22 @@
 
         public function cines(){
             $this->vista('paginas/cines');
+        }
+
+        public function subirComentario($id_peli){
+            $datos = [
+                "id_peli" => $id_peli,
+                "id_usuario" => $this->CallAPI("GET","http://localhost/logrofilm/API/getIdUsuario/".$_SESSION["username"]),
+                "texto" => $_POST["texto"]
+            ];
+
+            $datos_string = json_encode($datos);
+            //var_dump($datos_string);
+
+            $this->CallAPI("POST","http://localhost/logrofilm/API/subirComentario/",$datos_string); 
+            
+            header("Location: /logrofilm/paginas/peli/".$id_peli);
+            //header("Location: /logrofilm/paginas/panelP/");
         }
 
         private function CallAPI($method, $url, $data = null){

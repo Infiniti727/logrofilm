@@ -23,8 +23,24 @@ body {
    margin: auto;
 }
 
+.sign-in {
+   height: 460px;
+}
+
 .w-70 {
    width: 70%;
+}
+
+.button {
+   background-color: #FFCF96;
+   border-radius: 10px;
+   padding: 10px;
+   border: none;
+   transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+   background-color: #bd9768;
 }
 
 .log-in .button {
@@ -183,11 +199,22 @@ table .btn {
    cursor: pointer;
 }
 
-#pelis_nuevas {
+.carousel-item.active, .carousel-item-next, .carousel-item-prev {
    display: flex;
+}
+
+.carousel-control-next, .carousel-control-prev {
+   background-color: black;
+   width: 70px;
+   height: 100px;
+   top: 50%;
+   transform: translateY(-50%);
+}
+
+
+.pelis_nuevas {
    justify-content: space-between;
-   max-width: 1300px;
-   margin: auto;
+   max-width: 1900px;
    flex-wrap: wrap;
 }
 
@@ -228,6 +255,7 @@ table .btn {
    max-width: 1300px;
    margin: auto;
    flex-wrap: wrap;
+   min-height: 700px;
 }
 
 .escondido {
@@ -251,5 +279,28 @@ table .btn {
 }
 
 .resultado img {
+   width: 150px;
+}
+
+.comentario {
+   border: 1px solid black;
+   margin-top: 10px;
+}
+
+
+#carouselExample {
+   width:100% ;
+}
+
+.footer {
+   width: 100%;
+   height: 100px;
+   background-color: black;
+   color: white;
+   text-align: center;
+   margin-top: 50px;
+}
+
+.inicio .logo {
    width: 150px;
 }

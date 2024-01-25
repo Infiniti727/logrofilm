@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-01-2024 a las 12:58:08
+-- Tiempo de generación: 25-01-2024 a las 16:43:43
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -114,8 +114,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `email`, `contraseña`, `desactivada`, `admin`) VALUES
-(1, 'admin', 'admin@admin.com', 'admin', 0, 1),
-(2, 'usuario', '', 'usuario', 0, 0),
+(1, 'admin', 'admin', 'admin', 0, 1),
+(2, 'usuario', 'usuario', 'usuario', 0, 0);
 
 --
 -- Índices para tablas volcadas

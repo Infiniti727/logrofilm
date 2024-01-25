@@ -1,6 +1,6 @@
 <?php
 
-require '../../vendor/autoload.php';
+require __DIR__.'/../../vendor/autoload.php';
     
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -16,8 +16,8 @@ class Correo
 
     public function __construct()
     {
-        $this->remitente = "PaginaCompras@comp.com";
-        $this->destinatario = $_SESSION["username"];
+        $this->remitente = "Logrofilm@noreply.com";
+        $this->destinatario = "";
         $this->destinatarioCC = "";
         $this->documento = "";
     }
@@ -34,14 +34,14 @@ class Correo
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            
         $mail->Port       = 587;                                    
     
-        $mail->setFrom($this->remitente, 'siwi');
+        $mail->setFrom($this->remitente, 'Logrofilm');
         $mail->addAddress($this->destinatario);     
        // $mail->addCC($this->destinatarioCC);
         //$mail->addAttachment($this->documento);         
 
         $mail->isHTML(true);                                 
-        $mail->Subject = 'Pedido';
-        $mail->Body    = '<b>Se ha realizado tu pedido</b>';
+        $mail->Subject = 'Nueva cuenta';
+        $mail->Body    = '<b>¡Se ha creado tu cuenta con exito!</b>';
         $mail->AltBody = 'Se ha realizado tu pedido';
 
         $mail->send();

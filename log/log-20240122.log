@@ -1,0 +1,228 @@
+2024-01-22 08:40:42 [21240] [INFO ] [main                     ] [  39] - API petition 65ae1bfa9056b : GET - /logrofilm/
+2024-01-22 08:40:42 [21240] [DEBUG] [Errors                   ] [  95] - File "C:\xampp\htdocs\logrofilm\filmaffinity-api\config\errors.json" loaded sucessfully
+2024-01-22 08:40:42 [21240] [ERROR] [ErrorHandler             ] [ 104] - ERROR 1003: Not found.
+2024-01-22 08:40:42 [21240] [ERROR] [ErrorHandler             ] [ 105] - Slim\Exception\HttpNotFoundException: Not found. in C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php:76
+Stack trace:
+#0 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#2 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#6 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#7 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(199): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#8 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(183): Slim\App->handle(Object(Slim\Psr7\Request))
+#9 C:\xampp\htdocs\logrofilm\filmaffinity-api\public\index.php(42): Slim\App->run()
+#10 C:\xampp\htdocs\logrofilm\app\iniciador.php(10): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\logrofilm\public\index.php(11): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+2024-01-22 08:40:42 [21240] [INFO ] [main                     ] [  46] - API petition 65ae1bfa9056b : executed in 0.11 seconds
+2024-01-22 08:41:16 [21240] [INFO ] [main                     ] [  39] - API petition 65ae1c1c309a0 : POST - /logrofilm%20/paginas/validacion/
+2024-01-22 08:41:16 [21240] [DEBUG] [Errors                   ] [  95] - File "C:\xampp\htdocs\logrofilm\filmaffinity-api\config\errors.json" loaded sucessfully
+2024-01-22 08:41:16 [21240] [ERROR] [ErrorHandler             ] [ 104] - ERROR 1003: Not found.
+2024-01-22 08:41:16 [21240] [ERROR] [ErrorHandler             ] [ 105] - Slim\Exception\HttpNotFoundException: Not found. in C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php:76
+Stack trace:
+#0 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#2 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#6 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#7 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(199): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#8 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(183): Slim\App->handle(Object(Slim\Psr7\Request))
+#9 C:\xampp\htdocs\logrofilm\filmaffinity-api\public\index.php(42): Slim\App->run()
+#10 C:\xampp\htdocs\logrofilm\app\iniciador.php(10): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\logrofilm\public\index.php(11): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+2024-01-22 08:41:16 [21240] [INFO ] [main                     ] [  46] - API petition 65ae1c1c309a0 : executed in 0.06 seconds
+2024-01-22 08:42:00 [21240] [INFO ] [main                     ] [  39] - API petition 65ae1c48a5e4a : POST - /logrofilm%20/paginas/validacion/
+2024-01-22 08:42:00 [21240] [DEBUG] [Errors                   ] [  95] - File "C:\xampp\htdocs\logrofilm\filmaffinity-api\config\errors.json" loaded sucessfully
+2024-01-22 08:42:00 [21240] [ERROR] [ErrorHandler             ] [ 104] - ERROR 1003: Not found.
+2024-01-22 08:42:00 [21240] [ERROR] [ErrorHandler             ] [ 105] - Slim\Exception\HttpNotFoundException: Not found. in C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php:76
+Stack trace:
+#0 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#2 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#6 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#7 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(199): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#8 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(183): Slim\App->handle(Object(Slim\Psr7\Request))
+#9 C:\xampp\htdocs\logrofilm\filmaffinity-api\public\index.php(42): Slim\App->run()
+#10 C:\xampp\htdocs\logrofilm\app\iniciador.php(10): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\logrofilm\public\index.php(11): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+2024-01-22 08:42:00 [21240] [INFO ] [main                     ] [  46] - API petition 65ae1c48a5e4a : executed in 0.05 seconds
+2024-01-22 08:42:03 [21240] [INFO ] [main                     ] [  39] - API petition 65ae1c4af15c3 : GET - /logrofilm/paginas/error/
+2024-01-22 08:42:03 [21240] [DEBUG] [Errors                   ] [  95] - File "C:\xampp\htdocs\logrofilm\filmaffinity-api\config\errors.json" loaded sucessfully
+2024-01-22 08:42:03 [21240] [ERROR] [ErrorHandler             ] [ 104] - ERROR 1003: Not found.
+2024-01-22 08:42:03 [21240] [ERROR] [ErrorHandler             ] [ 105] - Slim\Exception\HttpNotFoundException: Not found. in C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php:76
+Stack trace:
+#0 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#2 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#6 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#7 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(199): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#8 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(183): Slim\App->handle(Object(Slim\Psr7\Request))
+#9 C:\xampp\htdocs\logrofilm\filmaffinity-api\public\index.php(42): Slim\App->run()
+#10 C:\xampp\htdocs\logrofilm\app\iniciador.php(10): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\logrofilm\public\index.php(11): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+2024-01-22 08:42:03 [21240] [INFO ] [main                     ] [  46] - API petition 65ae1c4af15c3 : executed in 0.04 seconds
+2024-01-22 08:42:09 [21240] [INFO ] [main                     ] [  39] - API petition 65ae1c51443f2 : POST - /logrofilm%20/paginas/validacion/
+2024-01-22 08:42:09 [21240] [DEBUG] [Errors                   ] [  95] - File "C:\xampp\htdocs\logrofilm\filmaffinity-api\config\errors.json" loaded sucessfully
+2024-01-22 08:42:09 [21240] [ERROR] [ErrorHandler             ] [ 104] - ERROR 1003: Not found.
+2024-01-22 08:42:09 [21240] [ERROR] [ErrorHandler             ] [ 105] - Slim\Exception\HttpNotFoundException: Not found. in C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php:76
+Stack trace:
+#0 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#2 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#6 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#7 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(199): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#8 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(183): Slim\App->handle(Object(Slim\Psr7\Request))
+#9 C:\xampp\htdocs\logrofilm\filmaffinity-api\public\index.php(42): Slim\App->run()
+#10 C:\xampp\htdocs\logrofilm\app\iniciador.php(10): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\logrofilm\public\index.php(11): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+2024-01-22 08:42:09 [21240] [INFO ] [main                     ] [  46] - API petition 65ae1c51443f2 : executed in 0.04 seconds
+2024-01-22 08:42:11 [21240] [INFO ] [main                     ] [  39] - API petition 65ae1c5394a25 : GET - /logrofilm/paginas/error/
+2024-01-22 08:42:11 [21240] [DEBUG] [Errors                   ] [  95] - File "C:\xampp\htdocs\logrofilm\filmaffinity-api\config\errors.json" loaded sucessfully
+2024-01-22 08:42:11 [21240] [ERROR] [ErrorHandler             ] [ 104] - ERROR 1003: Not found.
+2024-01-22 08:42:11 [21240] [ERROR] [ErrorHandler             ] [ 105] - Slim\Exception\HttpNotFoundException: Not found. in C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php:76
+Stack trace:
+#0 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#2 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#6 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#7 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(199): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#8 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(183): Slim\App->handle(Object(Slim\Psr7\Request))
+#9 C:\xampp\htdocs\logrofilm\filmaffinity-api\public\index.php(42): Slim\App->run()
+#10 C:\xampp\htdocs\logrofilm\app\iniciador.php(10): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\logrofilm\public\index.php(11): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+2024-01-22 08:42:11 [21240] [INFO ] [main                     ] [  46] - API petition 65ae1c5394a25 : executed in 0.05 seconds
+2024-01-22 08:42:15 [21240] [INFO ] [main                     ] [  39] - API petition 65ae1c576d5d0 : GET - /logrofilm/paginas/sing_up
+2024-01-22 08:42:15 [21240] [DEBUG] [Errors                   ] [  95] - File "C:\xampp\htdocs\logrofilm\filmaffinity-api\config\errors.json" loaded sucessfully
+2024-01-22 08:42:15 [21240] [ERROR] [ErrorHandler             ] [ 104] - ERROR 1003: Not found.
+2024-01-22 08:42:15 [21240] [ERROR] [ErrorHandler             ] [ 105] - Slim\Exception\HttpNotFoundException: Not found. in C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php:76
+Stack trace:
+#0 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#2 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#6 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#7 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(199): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#8 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(183): Slim\App->handle(Object(Slim\Psr7\Request))
+#9 C:\xampp\htdocs\logrofilm\filmaffinity-api\public\index.php(42): Slim\App->run()
+#10 C:\xampp\htdocs\logrofilm\app\iniciador.php(10): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\logrofilm\public\index.php(11): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+2024-01-22 08:42:15 [21240] [INFO ] [main                     ] [  46] - API petition 65ae1c576d5d0 : executed in 0.05 seconds
+2024-01-22 08:42:21 [21240] [INFO ] [main                     ] [  39] - API petition 65ae1c5d3bb2e : POST - /logrofilm%20/paginas/validacion_2/
+2024-01-22 08:42:21 [21240] [DEBUG] [Errors                   ] [  95] - File "C:\xampp\htdocs\logrofilm\filmaffinity-api\config\errors.json" loaded sucessfully
+2024-01-22 08:42:21 [21240] [ERROR] [ErrorHandler             ] [ 104] - ERROR 1003: Not found.
+2024-01-22 08:42:21 [21240] [ERROR] [ErrorHandler             ] [ 105] - Slim\Exception\HttpNotFoundException: Not found. in C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php:76
+Stack trace:
+#0 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#2 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#6 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#7 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(199): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#8 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(183): Slim\App->handle(Object(Slim\Psr7\Request))
+#9 C:\xampp\htdocs\logrofilm\filmaffinity-api\public\index.php(42): Slim\App->run()
+#10 C:\xampp\htdocs\logrofilm\app\iniciador.php(10): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\logrofilm\public\index.php(11): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+2024-01-22 08:42:21 [21240] [INFO ] [main                     ] [  46] - API petition 65ae1c5d3bb2e : executed in 0.04 seconds
+2024-01-22 08:43:02 [21240] [INFO ] [main                     ] [  39] - API petition 65ae1c86c8238 : GET - /logrofilm/paginas/sing_up
+2024-01-22 08:43:02 [21240] [DEBUG] [Errors                   ] [  95] - File "C:\xampp\htdocs\logrofilm\filmaffinity-api\config\errors.json" loaded sucessfully
+2024-01-22 08:43:02 [21240] [ERROR] [ErrorHandler             ] [ 104] - ERROR 1003: Not found.
+2024-01-22 08:43:02 [21240] [ERROR] [ErrorHandler             ] [ 105] - Slim\Exception\HttpNotFoundException: Not found. in C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php:76
+Stack trace:
+#0 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#2 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#6 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#7 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(199): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#8 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(183): Slim\App->handle(Object(Slim\Psr7\Request))
+#9 C:\xampp\htdocs\logrofilm\filmaffinity-api\public\index.php(42): Slim\App->run()
+#10 C:\xampp\htdocs\logrofilm\app\iniciador.php(10): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\logrofilm\public\index.php(11): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+2024-01-22 08:43:02 [21240] [INFO ] [main                     ] [  46] - API petition 65ae1c86c8238 : executed in 0.05 seconds
+2024-01-22 08:43:02 [21240] [INFO ] [main                     ] [  39] - API petition 65ae1c86d7e9a : GET - /logrofilm/paginas/pagina_principal
+2024-01-22 08:43:02 [21240] [DEBUG] [Errors                   ] [  95] - File "C:\xampp\htdocs\logrofilm\filmaffinity-api\config\errors.json" loaded sucessfully
+2024-01-22 08:43:02 [21240] [ERROR] [ErrorHandler             ] [ 104] - ERROR 1003: Not found.
+2024-01-22 08:43:02 [21240] [ERROR] [ErrorHandler             ] [ 105] - Slim\Exception\HttpNotFoundException: Not found. in C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php:76
+Stack trace:
+#0 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#2 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#6 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#7 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(199): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#8 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(183): Slim\App->handle(Object(Slim\Psr7\Request))
+#9 C:\xampp\htdocs\logrofilm\filmaffinity-api\public\index.php(42): Slim\App->run()
+#10 C:\xampp\htdocs\logrofilm\app\iniciador.php(10): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\logrofilm\public\index.php(11): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+2024-01-22 08:43:02 [21240] [INFO ] [main                     ] [  46] - API petition 65ae1c86d7e9a : executed in 0.04 seconds
+2024-01-22 08:43:59 [21240] [INFO ] [main                     ] [  39] - API petition 65ae1cbf3bd97 : GET - /logrofilm/paginas/pagina_principal
+2024-01-22 08:43:59 [21240] [DEBUG] [Errors                   ] [  95] - File "C:\xampp\htdocs\logrofilm\filmaffinity-api\config\errors.json" loaded sucessfully
+2024-01-22 08:43:59 [21240] [ERROR] [ErrorHandler             ] [ 104] - ERROR 1003: Not found.
+2024-01-22 08:43:59 [21240] [ERROR] [ErrorHandler             ] [ 105] - Slim\Exception\HttpNotFoundException: Not found. in C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php:76
+Stack trace:
+#0 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#2 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#6 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#7 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(199): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#8 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(183): Slim\App->handle(Object(Slim\Psr7\Request))
+#9 C:\xampp\htdocs\logrofilm\filmaffinity-api\public\index.php(42): Slim\App->run()
+#10 C:\xampp\htdocs\logrofilm\app\iniciador.php(10): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\logrofilm\public\index.php(11): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+2024-01-22 08:43:59 [21240] [INFO ] [main                     ] [  46] - API petition 65ae1cbf3bd97 : executed in 0.06 seconds
+2024-01-22 09:18:51 [20160] [INFO ] [main                     ] [  39] - API petition 65ae24e8d4e8c : GET - /logrofilm/
+2024-01-22 09:18:52 [20160] [DEBUG] [Errors                   ] [  95] - File "C:\xampp\htdocs\logrofilm\filmaffinity-api\config\errors.json" loaded sucessfully
+2024-01-22 09:18:52 [20160] [ERROR] [ErrorHandler             ] [ 104] - ERROR 1003: Not found.
+2024-01-22 09:18:52 [20160] [ERROR] [ErrorHandler             ] [ 105] - Slim\Exception\HttpNotFoundException: Not found. in C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php:76
+Stack trace:
+#0 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#2 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#6 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#7 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(199): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#8 C:\xampp\htdocs\logrofilm\filmaffinity-api\vendor\slim\slim\Slim\App.php(183): Slim\App->handle(Object(Slim\Psr7\Request))
+#9 C:\xampp\htdocs\logrofilm\filmaffinity-api\public\index.php(42): Slim\App->run()
+#10 C:\xampp\htdocs\logrofilm\app\iniciador.php(10): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\logrofilm\public\index.php(11): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+2024-01-22 09:18:52 [20160] [INFO ] [main                     ] [  46] - API petition 65ae24e8d4e8c : executed in 3.39 seconds

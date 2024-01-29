@@ -7,6 +7,9 @@
             
         }
 
+        /**
+         * Pagina incial, la cual es la de inicio de sesion
+         */
         public function index(){     
             
             $datos = [
@@ -20,6 +23,9 @@
                
         }
 
+        /**
+         * Pagina de creacion de cuenta.
+         */
         public function sing_up($a=0){     
             
             $datos = [
@@ -34,6 +40,9 @@
                
         }
 
+        /**
+         * Validacion del inicio de sesion.
+         */
         public function validacion(){
             $usuario_no_existe = true;
             $peticion = $this->CallAPI("GET","http://localhost/logrofilm/API/getUsuariosContra/");
@@ -58,6 +67,9 @@
             }
         }
 
+        /**
+         * Validacion de la creacion de usuarios.
+         */
         public function validacion_2(){
             $modelo2 = $this->modelo('Correo');
             if($this->CallAPI("GET","http://localhost/logrofilm/API/ComprobarNombre/".$_POST["usuario"]) == 0){
@@ -86,6 +98,9 @@
             }
         }
 
+        /**
+         * Peticion para añadir pelicula.
+         */
         public function anadirPelicula(){
             $url =  $_POST["imagen"];  
   
@@ -122,6 +137,9 @@
             header("Location: /logrofilm/paginas/panelP/");
         }
 
+        /**
+         * Pagina de edicion de peliculas.
+         */
         public function editarP($id){
             $datos = [
                 "id" => $id
@@ -130,6 +148,9 @@
             $this->vista('paginas/editar_peli',$datos);
         }
 
+        /**
+         * Pagina con los resultados de busqueda de peliculas de usuario
+         */
         public function busqueda($entrada){
             $resultados = $this->CallAPI("GET","http://localhost/logrofilm/API/buscarPeliculas/".$entrada);
             $datos = [
@@ -138,6 +159,9 @@
             $this->vista('paginas/busqueda',$datos);
         }
 
+        /**
+         * Peticion para editar los datos de una pelicula
+         */
         public function editarPelicula($id){
             $url =  $_POST["imagen"];  
   
@@ -173,6 +197,9 @@
             header("Location: /logrofilm/paginas/panelP/");
         }
 
+        /**
+         * Pantalla principal de aplicacion una vez estas iniciada la sesion.
+         */
         public function pagina_principal(){
             
 
@@ -187,16 +214,25 @@
             }
         }
 
+        /**
+         * Envio de correo a cuentas nuevas.
+         */
         public function enviar(){
             $Mailer = $this->modelo('Correo');
 
             $Mailer->enviar();
         }
 
+        /**
+         * Panel de administrados.
+         */
         public function panel(){
             $this->vista('paginas/panel_control'); 
         }
 
+        /**
+         * Panel de administrador de usuarios.
+         */
         public function panelU(){
             
             $datos = [
@@ -206,15 +242,24 @@
             $this->vista('paginas/panel_usuarios', $datos); 
         }
 
+        /**
+         * Panel de administrador de peliculas.
+         */
         public function panelP(){
             $this->vista('paginas/panel_peliculas'); 
         }
 
+        /**
+         * Cierre de sesion.
+         */
         public function cerrar(){
             session_destroy();
             header("Location: /logrofilm/paginas/");
         }
 
+        /**
+         * Peticion para desactivar o activar cuentas de usuarios.
+         */
         public function activar_desactivar($id){
             
             if($this->CallAPI("GET","http://localhost/logrofilm/API/getDesactivada/".$id)){
@@ -226,6 +271,9 @@
             header("Location: /logrofilm/paginas/panelU/");
         }
 
+        /**
+         * Formulario de peliculas.
+         */
         public function formP($id){
             $datos = [
                 "id" => $id
@@ -234,10 +282,16 @@
             $this->vista('paginas/formulario_peliculas',$datos);
         }
 
+        /**
+         * Pagina para buscar peliculas de la base de datos de filmaffinity.
+         */
         public function anadirP(){
             $this->vista('paginas/buscar_peli_backend');
         }
 
+        /**
+         * Pagina con datos de una pelicula.
+         */
         public function peli($id){
 
             $peli =$this->CallAPI("GET","http://localhost/logrofilm/API/obtenerPeliculaID/".$id);
@@ -257,10 +311,16 @@
             $this->vista('paginas/peli', $datos);
         }
 
+        /**
+         * Pagina con mapa con cines de logroño.
+         */
         public function cines(){
             $this->vista('paginas/cines');
         }
 
+        /**
+         * Peticion para guardar un comentario.
+         */
         public function subirComentario($id_peli){
             $datos = [
                 "id_peli" => $id_peli,
@@ -277,6 +337,9 @@
             //header("Location: /logrofilm/paginas/panelP/");
         }
 
+        /**
+         * Clase para llamada a apis.
+         */
         private function CallAPI($method, $url, $data = null){
             $curl = curl_init();
 

@@ -1,7 +1,9 @@
 <?php
 
 use Firebase\JWT\JWT;
-
+/**
+ * API interna.
+ */
 class API extends Controlador{
 
     var $modelo;
@@ -35,47 +37,75 @@ class API extends Controlador{
      * Autenticación básica. Se obtendrá un response si el usuario y password facilitado en 
      * la cabecera es correcta, sin devolver ningún token adicional.
      */
+
+     /**
+     * Obtener usuarios.
+     */
     public function getUsuarios(){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo->obtenerUsuarios());
     }
 
+    /**
+     * Obtener un usuario por id.
+     */
     public function getUsuarioId($id){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo->obtenerPorID($id));
     }
 
+    /**
+     * Obtener usuarios con sus contraseñas.
+     */
     public function getUsuariosContra(){
 
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo->obtenerUsuarioContraseña());
     }
-
+    
+    /**
+     * Obtener email de usuario.
+     */
     public function getEmail($nombre){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo->obtenerEmail($nombre));
     } 
 
+    /**
+     * Obtener estado de admin de usuario.
+     */
     public function getAdmin($nombre){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo->esAdmin($nombre));
     } 
 
+    /**
+     * Obtener obtener la id de un usuario.
+     */
     public function getIdUsuario($nombre){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo->getIdUsuario($nombre));
     } 
 
+    /**
+     * Comprobacion de si existe un nombre de usuario.
+     */
     public function ComprobarNombre($nombre){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo->ComprobarNombre($nombre));
     }
 
+    /**
+     * Comprobacion de si existe un email en una cuenta de usuario.
+     */
     public function ComprobarEmail($email){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo->ComprobarEmail($email));
     }
     
+    /**
+     * Añade un usuario nuevo.
+     */
     public function AnadirUsuario(){
         header("Content-Type: application/json', 'HTTP/1.1 201 OK");
         
@@ -83,16 +113,25 @@ class API extends Controlador{
         $this->modelo->crearUsuario($data->nombre,$data->email,$data->contraseña);
     }  
     
+    /**
+     * Obtiene estado de desactivacion de un usuario.
+     */
     public function getDesactivada($id){
         header("Content-type: application/json', 'HTTP/1.1 200 OK");
         return $this->modelo->obtenerPorID($id)->desactivada;
     }
 
+    /**
+     * Cambio estado de desactivacion de un usuario.
+     */
     public function cambiarEstadoDesactivada(){
         header("Content-type: application/json', 'HTTP/1.1 201 OK");
         $this->modelo->cambiarActivada($_GET["id"],$_GET["estado"]);
     }
 
+    /**
+     * Añade nueva pelicula a la BD.
+     */
     public function anadirPelicula(){
         header("Content-Type: application/json', 'HTTP/1.1 201 OK");
         
@@ -101,44 +140,60 @@ class API extends Controlador{
         return var_dump($data);
     }
 
+    /**
+     * Obtiene las ultimas 8 peliculas.
+     */
     public function obtenerPeliculas(){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo2->obtenerPeliculas());
 
     }
 
-    public function obtenerUltimasPeliculas(){
-        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
-        echo json_encode($this->modelo2->obtenerUltimasPeliculas());
-    }
-
+    /**
+     * Obtiene una pelicula por id.
+     */
     public function obtenerPeliculaID($id){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo2->obtenerPeliculaID($id));
 
     }
 
+    /**
+     * Edita un pelicula.
+     */
     public function editarPelicula(){
         $data = json_decode(file_get_contents("php://input"));
         $this->modelo2->editarPelicula($data->id,$data->id_fa,$data->nombre,$data->nombre_esp,$data->descripcion,$data->imagen,$data->año,$data->duracion,$data->directores,$data->casting, $data->generos);
         return var_dump($data);
     }
 
+    /**
+     * Obtiene todas las peliculas
+     */
     public function obtenerTodasPeliculas(){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo2->obtenerTodasPeliculas());
     }
 
+    /**
+     * Busca peliculas.
+     */
     public function buscarPeliculas($entrada){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo2->buscarPeliculas($entrada));
     }
 
+    /**
+     * Obtiene comentarios de una pelicula.
+     */
     public function obtenerComentariosPeli($id){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         echo json_encode($this->modelo3->obtenerComentariosPeli($id));
     }
 
+    /**
+     * Guarda comentario en la BD.
+     */
     public function subirComentario(){
         $data = json_decode(file_get_contents("php://input"));
         $this->modelo3->subirComentario($data->id_peli,$data->id_usuario,$data->texto);

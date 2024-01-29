@@ -36,11 +36,6 @@ class Pelicula{
         $this->bd->execute();
     }
 
-    public function obtenerUltimasPeliculas(){
-        $this->bd->query("SELECT * FROM pelicula");
-        return $this->bd->registros();
-    }
-
     public function buscarPeliculas($entrada){
         $this->bd->query("SELECT * FROM pelicula where nombre_esp like '%".$entrada."%'");
         return $this->bd->registros();

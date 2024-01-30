@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-lg navbar-dark bg-dark py-3 text-light p-5 position-relative">
         <div class="w-70 position-relative m-auto d-flex align-items-center justify-content-between"> 
             <div>
-                <img src="http://localhost/logrofilm/public/img/logo.png" class="logo">
+                <img src="http://localhost:5500/logrofilm/public/img/logo.png" class="logo">
                 <!--<h1>LOGROFILM</h1>-->
             </div>
             <div class="ps-3 pe-3 flex-fill">
@@ -15,7 +15,7 @@
                     echo "<a class='link' href='".RUTA_URL."/paginas/panel/'>Panel de control</a>";
                 }
             ?>
-            <a><?php echo $_SESSION["username"]?>
+            <a><?php echo $_SESSION["username"]?></a>
             <a class="link" href="<?php echo RUTA_URL ;?> /paginas/cerrar/">Cerrar sesion</a>
         </div>
     </div>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo RUTA_URL?>/css/estilos.css">
     <title><?php echo NOMBRESITIO; ?> </title>
 </head>
-<body onload="cargarComentarios(<?php echo $datos['id'] ?>)">
+<body onload="cargarComentarios(<?php echo $datos['id'] ?> , <?php echo $_SESSION['admin'] ?> )">
 <?php require_once RUTA_APP.'/vistas/inc/Barra_nav.php';?> 
 
 

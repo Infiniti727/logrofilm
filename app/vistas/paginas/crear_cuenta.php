@@ -12,25 +12,25 @@
     
 <div class="w-100">
     <form class="log-in sign-in position-absolute start-50 translate-middle top-50" action="<?php echo RUTA_URL ;?> /paginas/validacion_2/" method="post">
-        <img class="logo" src="http://localhost/logrofilm/public/img/logo.png" alt="">
+        <img class="logo" src="http://localhost:5500/logrofilm/public/img/logo.png" alt="">
         <h1>Cear una cuenta</h1>
         <a>Introduzca los datos de la nueva cuenta</a>  
         <br>
         <br>
         <div class="input position-relative">
-            <img class="top-50 translate-middle-y" src="http://localhost/logrofilm/public/img/perfil.png" alt="">
+            <img class="top-50 translate-middle-y" src="http://localhost:5500/logrofilm/public/img/perfil.png" alt="">
             <input type="text" id="usuario" name="usuario" placeholder="Nombre" required><br>
         </div>
         <br>
         <br>
         <div class="input position-relative">
-            <img class="top-50 translate-middle-y" src="http://localhost/logrofilm/public/img/mail.png" alt="">
+            <img class="top-50 translate-middle-y" src="http://localhost:5500/logrofilm/public/img/mail.png" alt="">
             <input type="text" id="email" name="email" placeholder="Email" required><br>
         </div>
         <br>
         <br>
         <div class="input position-relative">
-            <img class="top-50 translate-middle-y" src="http://localhost/logrofilm/public/img/contra.png" alt="">
+            <img class="top-50 translate-middle-y" src="http://localhost:5500/logrofilm/public/img/contra.png" alt="">
             <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required><br>
         </div>
         <br>

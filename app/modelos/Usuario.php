@@ -60,4 +60,15 @@ class Usuario{
         $this->bd->query("UPDATE `usuario` SET `desactivada` = '".$estado."' WHERE `usuario`.`id` = ".$id.";");
         $this->bd->execute();
     }
+
+    public function editarUsuario($id,$nombre,$correo,$contraseña){
+        if($contraseña != ""){
+            $this->bd->query("UPDATE `usuario` SET `nombre` = '".$nombre."', `email`='".$correo."',`contraseña`='".$contraseña."' WHERE `usuario`.`id` =".$id.";");
+        } else {
+            $this->bd->query("UPDATE `usuario` SET `nombre` = '".$nombre."', `email`='".$correo."' WHERE `usuario`.`id` =".$id.";");
+        }
+
+        $this->bd->execute();
+        
+    }
 }

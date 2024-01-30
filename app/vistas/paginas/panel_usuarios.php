@@ -10,6 +10,7 @@
             <td>Desactivada</td>
             <td>Admin</td>
             <td>Activar/Desactivar</td>
+            <td>Modificar</td>
         </tr>
         <?php
             foreach ($datos["usuarios"] as $row) {
@@ -29,6 +30,7 @@
                         echo "<td>true</td>";
                     }
                     echo "<td><a class='btn' href='".RUTA_URL."/paginas/activar_desactivar/".$row->id."'>Cambiar</a></td>";
+                    echo "<td><a class='btn' href='".RUTA_URL."/paginas/formU/".$row->id."'>Modificar</a></td>";
                 echo "</tr>";
             }
         ?>

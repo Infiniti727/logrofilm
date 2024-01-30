@@ -167,6 +167,12 @@ class API extends Controlador{
         return var_dump($data);
     }
 
+    public function editarUsuario(){
+        $data = json_decode(file_get_contents("php://input"));
+        $this->modelo->editarUsuario($data->id,$data->nombre,$data->correo,$data->contraseña);
+        return var_dump($data);
+    }
+
     /**
      * Obtiene todas las peliculas
      */
@@ -192,11 +198,28 @@ class API extends Controlador{
     }
 
     /**
+     * Obtiene un comentario
+     */
+    public function obtenerComentario($id){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        echo json_encode($this->modelo3->obtenerComentario($id));
+    }
+
+    /**
      * Guarda comentario en la BD.
      */
     public function subirComentario(){
         $data = json_decode(file_get_contents("php://input"));
         $this->modelo3->subirComentario($data->id_peli,$data->id_usuario,$data->texto);
+        //return var_dump($data);
+    }
+
+    /**
+     * Guarda comentario en la BD.
+     */
+    public function eliminarComentario(){
+        $data = json_decode(file_get_contents("php://input"));
+        $this->modelo3->eliminarComentario($data->id);
         //return var_dump($data);
     }
    

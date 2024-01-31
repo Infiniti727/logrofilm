@@ -9,6 +9,7 @@ class API extends Controlador{
     var $modelo;
     var $modelo2;
     var $modelo3;
+    var $modelo4;
     var $key = 'clave_secreta'; 
     const DATA = '222';
     
@@ -17,6 +18,7 @@ class API extends Controlador{
         $this->modelo = $this->modelo('Usuario');
         $this->modelo2 = $this->modelo('Pelicula');
         $this->modelo3 = $this->modelo("Comentario");
+        $this->modelo4 = $this->modelo("Rating");
     }
 
      /**
@@ -215,12 +217,29 @@ class API extends Controlador{
     }
 
     /**
-     * Guarda comentario en la BD.
+     * Eliminar comentario en la BD.
      */
     public function eliminarComentario(){
         $data = json_decode(file_get_contents("php://input"));
         $this->modelo3->eliminarComentario($data->id);
         //return var_dump($data);
+    }
+
+    /**
+     * Guarda rating en la BD.
+     */
+    public function subirRating(){
+        $data = json_decode(file_get_contents("php://input"));
+        $this->modelo4->subirRating($data->id_peli,$data->id_usuario,$data->valor);
+    }
+
+    /**
+     * Obtener rating de la BD.
+     */
+    public function obtenerRating(){
+        $data = json_decode(file_get_contents("php://input"));
+        $this->modelo4->obtenerRating($data->id_peli,$data->id_usuario);
+        
     }
    
    

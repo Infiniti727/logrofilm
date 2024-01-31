@@ -31,11 +31,12 @@
     
 </div>
 
-<h1 class="text-center">Comentarios</h1>
+<h1 class="text-center">Comentarios y ratings</h1>
 
 <div id="comentarios" class="w-75 m-auto">
-    <form action="<?php echo RUTA_URL ;?> /paginas/subirComentario/<?php echo $datos['id'] ?>" method="post">
-        <textarea class="w-100" name="texto" id="texto" cols="60" rows="3" placeholder="Escribe aqui tu comentario" required></textarea><br>
+    <form action="<?php echo RUTA_URL ;?> /paginas/subirComentarioyRating/<?php echo $datos['id'] ?>" method="post">
+        <input type="number" id="rating" name="rating" placeholder="Rating" min="0.0" max="5.0" step=".1">
+        <textarea class="w-100" name="texto" id="texto" cols="60" rows="3" placeholder="Escribe aqui tu comentario"></textarea><br>
         <input class="button" type="submit" value="Post">
     </form>
 </div>

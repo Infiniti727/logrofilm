@@ -18,7 +18,7 @@
             if(isset($_SESSION['username'])){
                 header('Location: /logrofilm/paginas/pagina_principal');
             } else {
-                $this->vista('paginas', $datos); 
+                $this->vista('paginas/inicio', $datos); 
             }
                
         }
@@ -421,19 +421,34 @@
         /**
          * Peticion para guardar un comentario.
          */
-        public function subirComentario($id_peli){
+        public function subirComentarioyRating($id_peli){
             if(isset($_SESSION['username'])){
-                $datos = [
-                    "id_peli" => $id_peli,
-                    "id_usuario" => $this->CallAPI("GET","http://localhost:5500/logrofilm/API/getIdUsuario/".$_SESSION["username"]),
-                    "texto" => $_POST["texto"]
-                ];
-    
-                $datos_string = json_encode($datos);
-                //var_dump($datos_string);
-    
-                $this->CallAPI("POST","http://localhost:5500/logrofilm/API/subirComentario/",$datos_string); 
-                
+
+                if($_POST["texto"] != ""){
+                    $datos = [  
+                        "id_peli" => $id_peli,
+                        "id_usuario" => $this->CallAPI("GET","http://localhost:5500/logrofilm/API/getIdUsuario/".$_SESSION["username"]),
+                        "texto" => $_POST["texto"]
+                    ];
+        
+                    $datos_string = json_encode($datos);
+                    //var_dump($datos_string);
+        
+                    $this->CallAPI("POST","http://localhost:5500/logrofilm/API/subirComentario/",$datos_string); 
+                }
+
+                if($_POST["rating"] != ""){
+                    $datos = [  
+                        "id_peli" => $id_peli,
+                        "id_usuario" => $this->CallAPI("GET","http://localhost:5500/logrofilm/API/getIdUsuario/".$_SESSION["username"]),
+                        "valor" => $_POST["rating"]
+                    ];
+        
+                    $datos_string = json_encode($datos);
+                    //var_dump($datos_string);
+        
+                    $this->CallAPI("POST","http://localhost:5500/logrofilm/API/subirRating/",$datos_string); 
+                }
                 header("Location: /logrofilm/paginas/peli/".$id_peli);
             } else {
                 header("Location: /logrofilm/paginas/"); 
@@ -498,7 +513,7 @@
                 echo 'Curl error: ' . curl_error($curl);
             }
 
-            //echo $result;
+            echo $result;
             return json_decode($result);
         }
 

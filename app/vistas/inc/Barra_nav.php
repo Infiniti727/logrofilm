@@ -15,7 +15,7 @@
                     echo "<a class='link' href='".RUTA_URL."/paginas/panel/'>Panel de control</a>";
                 }
             ?>
-            <a><?php echo $_SESSION["username"]?>
+            <a class="link" href="<?php echo RUTA_URL ;?> /paginas/usuario/<?php echo $_SESSION["id"] ;?>"><?php echo $_SESSION["username"]?>
             <a class="link" href="<?php echo RUTA_URL ;?> /paginas/cerrar/">Cerrar sesion</a>
         </div>
     </div>

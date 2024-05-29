@@ -250,12 +250,14 @@ function mostrarPeliBusquedaB(data) {
 
                 const nombre = document.createElement("a");
                 nombre.id = result.id_usuario;
+                nombre.classList.add("link");
+                nombre.href = "http://localhost/logrofilm%20/paginas/usuario/"+result.id_usuario;
 
                 const texto = document.createElement("p");
                 texto.innerText = result.comentario;
 
                 const rating = document.createElement("p");
-                rating.innerHTML = "Rating: " + valor;
+                rating.innerHTML = "<b>Rating</b>: " + valor;
 
                 comentario.appendChild(nombre);
                 comentario.appendChild(rating);
@@ -299,6 +301,78 @@ function obtenerRating(id) {
         xmlhttp2.open("GET", "http://localhost/logrofilm/API/obtenerRatingId/"+id, true);
         xmlhttp2.send();
     });
+}
+
+function obtenerNombrePeli(id) {
+  return new Promise((resolve, reject) => {
+      if (window.XMLHttpRequest) {
+          // code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp3 = new XMLHttpRequest();
+      } else {
+          // code for IE6, IE5
+          xmlhttp3 = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+
+      xmlhttp3.onreadystatechange = function() {
+          if (this.readyState == 4) {
+              if (this.status == 200) {
+                  var parsedData = JSON.parse(this.responseText);
+                  var nombre = null;
+                  
+                  resolve(parsedData.nombre_esp);
+              } else {
+                  reject("Error loading rating");
+              }
+          }
+      };
+
+      xmlhttp3.open("GET", "http://localhost/logrofilm/API/obtenerPeliculaID/"+id, true);
+      xmlhttp3.send();
+  });
+}
+
+function cargarComentariosUsuario(id) {
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp = new XMLHttpRequest();
+  } else {
+      // code for IE6, IE5
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  
+  xmlhttp.onreadystatechange = async function() {
+      if (this.readyState == 4 && this.status == 200) {
+          comentarios = document.getElementById("comentarios");
+          var parsedData = JSON.parse(this.responseText);
+          for (const result of parsedData) {
+              const valor = await obtenerRating(result.id_rating);
+              const peli = await obtenerNombrePeli(result.id_peli);
+              const comentario = document.createElement("div");
+              comentario.classList.add("comentario");
+
+              const nombre = document.createElement("a");
+              nombre.id = result.id_usuario;
+              
+
+              const texto = document.createElement("p");
+              texto.innerText = result.comentario;
+
+              const rating = document.createElement("p");
+              rating.innerHTML = "<b>Rating</b>: " + valor;
+
+              const pelicula = document.createElement("p");
+              pelicula.innerHTML = "<b>Pelicula</b>: " + peli;
+
+              comentario.appendChild(pelicula);
+              comentario.appendChild(rating);
+              comentario.appendChild(texto);
+              comentarios.appendChild(comentario);
+          }
+      }
+  };
+
+  xmlhttp.open("GET", "http://localhost/logrofilm/API/obtenerComentariosUsuario/"+id, true);
+  xmlhttp.send();
 }
 
   function obtenerNombreUsuario(id){

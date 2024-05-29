@@ -43,6 +43,7 @@
                     if($_POST["contraseña"] == $row->contraseña){
                         $_SESSION['username'] = $_POST["usuario"];
                         $_SESSION["password"] = $_POST["contraseña"];
+                        $_SESSION["id"] = $this->CallAPI("GET","http://localhost/logrofilm/API/getIdUsuario/".$_POST["usuario"]);
                         $_SESSION["email"] = $this->CallAPI("GET","http://localhost/logrofilm/API/getEmail/".$_POST["usuario"]);
                         if($this->CallAPI("GET","http://localhost/logrofilm/API/getAdmin/".$_POST["usuario"])){
                             $_SESSION["admin"] = true;
@@ -256,6 +257,16 @@
                 "media" => $this->CallAPI("GET","http://localhost/logrofilm/API/obtenerRatingPeli/".$id),
             ];
             $this->vista('paginas/peli', $datos);
+        }
+
+        public function usuario($id){
+
+            $usuario =$this->CallAPI("GET","http://localhost/logrofilm/API/getUsuarioId/".$id);
+            $datos = [
+                "id" => $id,
+                "nombre" => $usuario->nombre,
+            ];
+            $this->vista('paginas/usuario', $datos);
         }
 
         public function cines(){

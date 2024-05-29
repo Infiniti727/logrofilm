@@ -141,6 +141,11 @@ class API extends Controlador{
         echo json_encode($this->modelo3->obtenerComentariosPeli($id));
     }
 
+    public function obtenerComentariosUsuario($id){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        echo json_encode($this->modelo3->obtenerComentariosUsuario($id));
+    }
+
     public function subirComentario(){
         $data = json_decode(file_get_contents("php://input"));
         echo $data->valor;

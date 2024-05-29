@@ -14,6 +14,11 @@ class Comentario{
         return $this->bd->registros();
     }
 
+    public function obtenerComentariosUsuario($id){
+        $this->bd->query("SELECT * FROM comentario where id_usuario = ".$id);
+        return $this->bd->registros();
+    }
+
     public function subirComentario($id_peli,$id_usuario,$texto, $id_rating){
         $this->bd->query("INSERT INTO `comentario`(`id_usuario`, `id_peli`, `comentario`, `id_rating`) VALUES ('".$id_usuario."','".$id_peli."','".$texto."','".$id_rating."')");
         $this->bd->execute();

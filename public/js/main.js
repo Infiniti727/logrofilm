@@ -238,30 +238,68 @@ function mostrarPeliBusquedaB(data) {
         // code for IE6, IE5
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
-  
-    xmlhttp.onreadystatechange = function() {
-      
-    if (this.readyState == 4 && this.status == 200) {
-      comentarios = document.getElementById("comentarios");
-      var parsedData = JSON.parse(this.responseText);
-      parsedData.forEach( function(result) {
-            comentario = document.createElement("div");
-            comentario.classList.add("comentario");
-            nombre = document.createElement("a");
-            nombre.id = result.id_usuario;
-            texto = document.createElement("p");
-            texto.innerText = result.comentario;
-            comentario.appendChild(nombre);
-            comentario.appendChild(texto);
-            comentarios.appendChild(comentario);
-            obtenerNombreUsuario(result.id_usuario);
-        });
-      }
-    }
-  
+    
+    xmlhttp.onreadystatechange = async function() {
+        if (this.readyState == 4 && this.status == 200) {
+            comentarios = document.getElementById("comentarios");
+            var parsedData = JSON.parse(this.responseText);
+            for (const result of parsedData) {
+                const valor = await obtenerRating(result.id_rating);
+                const comentario = document.createElement("div");
+                comentario.classList.add("comentario");
+
+                const nombre = document.createElement("a");
+                nombre.id = result.id_usuario;
+
+                const texto = document.createElement("p");
+                texto.innerText = result.comentario;
+
+                const rating = document.createElement("p");
+                rating.innerHTML = "Rating: " + valor;
+
+                comentario.appendChild(nombre);
+                comentario.appendChild(rating);
+                comentario.appendChild(texto);
+                comentarios.appendChild(comentario);
+
+                obtenerNombreUsuario(result.id_usuario);
+            }
+        }
+    };
+
     xmlhttp.open("GET", "http://localhost/logrofilm/API/obtenerComentariosPeli/"+id, true);
     xmlhttp.send();
-  }
+}
+
+function obtenerRating(id) {
+    return new Promise((resolve, reject) => {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp2 = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp2 = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp2.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    var parsedData = JSON.parse(this.responseText);
+                    var valor = null;
+                    parsedData.forEach(function(result) {
+                        valor = result.valor;
+                    });
+                    resolve(valor);
+                } else {
+                    reject("Error loading rating");
+                }
+            }
+        };
+
+        xmlhttp2.open("GET", "http://localhost/logrofilm/API/obtenerRatingId/"+id, true);
+        xmlhttp2.send();
+    });
+}
 
   function obtenerNombreUsuario(id){
     if (window.XMLHttpRequest) {

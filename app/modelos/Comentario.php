@@ -14,8 +14,13 @@ class Comentario{
         return $this->bd->registros();
     }
 
-    public function subirComentario($id_peli,$id_usuario,$texto){
-        $this->bd->query("INSERT INTO `comentario`(`id_usuario`, `id_peli`, `comentario`) VALUES ('".$id_usuario."','".$id_peli."','".$texto."')");
+    public function subirComentario($id_peli,$id_usuario,$texto, $id_rating){
+        $this->bd->query("INSERT INTO `comentario`(`id_usuario`, `id_peli`, `comentario`, `id_rating`) VALUES ('".$id_usuario."','".$id_peli."','".$texto."','".$id_rating."')");
+        $this->bd->execute();
+    }
+
+    public function subirComentarioNull($id_peli,$id_usuario,$texto){
+        $this->bd->query("INSERT INTO `comentario`(`id_usuario`, `id_peli`, `comentario`, `id_rating`) VALUES ('".$id_usuario."','".$id_peli."','".$texto."', NULL)");
         $this->bd->execute();
     }
     

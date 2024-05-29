@@ -252,7 +252,8 @@
                 "año" => $peli->año,
                 "casting" => $peli->casting,
                 "directores" => $peli->directores,
-                "generos" => $peli->generos
+                "generos" => $peli->generos,
+                "media" => $this->CallAPI("GET","http://localhost/logrofilm/API/obtenerRatingPeli/".$id),
             ];
             $this->vista('paginas/peli', $datos);
         }
@@ -265,13 +266,14 @@
             $datos = [
                 "id_peli" => $id_peli,
                 "id_usuario" => $this->CallAPI("GET","http://localhost/logrofilm/API/getIdUsuario/".$_SESSION["username"]),
-                "texto" => $_POST["texto"]
+                "texto" => $_POST["texto"],
+                "valor" => $_POST["valor"],
             ];
 
             $datos_string = json_encode($datos);
-            //var_dump($datos_string);
+            var_dump($datos_string);
 
-            $this->CallAPI("POST","http://localhost/logrofilm/API/subirComentario/",$datos_string); 
+            echo $this->CallAPI("POST","http://localhost/logrofilm/API/subirComentario/",$datos_string); 
             
             header("Location: /logrofilm/paginas/peli/".$id_peli);
             //header("Location: /logrofilm/paginas/panelP/");

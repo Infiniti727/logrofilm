@@ -7,6 +7,7 @@ class API extends Controlador{
     var $modelo;
     var $modelo2;
     var $modelo3;
+    var $modelo4;
     var $key = 'clave_secreta'; 
     const DATA = '222';
     
@@ -15,6 +16,7 @@ class API extends Controlador{
         $this->modelo = $this->modelo('Usuario');
         $this->modelo2 = $this->modelo('Pelicula');
         $this->modelo3 = $this->modelo("Comentario");
+        $this->modelo4 = $this->modelo("Rating");
     }
 
      /**
@@ -141,11 +143,42 @@ class API extends Controlador{
 
     public function subirComentario(){
         $data = json_decode(file_get_contents("php://input"));
-        $this->modelo3->subirComentario($data->id_peli,$data->id_usuario,$data->texto);
+        echo $data->valor;
+        if($data->valor != "-"){
+            echo 123123;
+            $this->modelo4->crearRating($data->id_peli,$data->valor);
+            $id_rating = $this->modelo4->obtenerRatingPeliUltimo($data->id_peli);
+            
+            $this->modelo3->subirComentario($data->id_peli,$data->id_usuario,$data->texto, $id_rating);
+        }else {
+            
+            $this->modelo3->subirComentarioNull($data->id_peli,$data->id_usuario,$data->texto);
+        }
+        
+        //echo $id_rating; 
+        //return json_encode($id_rating);
         //return var_dump($data);
     }
-   
-   
+
+    public function obtenerRatings(){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        echo json_encode($this->modelo4->obtenerRatings());
+    }
+
+    public function obtenerRatingId($id){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        echo json_encode($this->modelo4->obtenerRatingId($id));
+    }
+
+    public function obtenerRatingPeli($id){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        echo $formateado = number_format($this->modelo4->obtenerRatingPeli($id),1);
+    }
+
+    public function crearRating($id_peli,$valor) {
+        $data = json_decode(file_get_contents("php://input"));
+        $this->modelo4->crearRating($data->id_peli,$data->valor);
+    }
     
     /**
      * Autenticación básica. Se obtendrá un response si el usuario y password facilitado en 

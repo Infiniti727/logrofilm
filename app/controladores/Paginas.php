@@ -79,6 +79,7 @@
                     $_SESSION['username'] = $_POST["usuario"];
                     $_SESSION["password"] = $_POST["contraseña"];
                     $_SESSION["email"] = $_POST["email"];
+                    $_SESSION["id"] = $this->CallAPI("GET","http://localhost/logrofilm/API/getIdUsuario/".$_POST["usuario"]);
                     $_SESSION["key"] = $this->CallAPI("GET","http://localhost/logrofilm/API/getTokenJWT/".$_POST["usuario"]."_".$_POST["contraseña"])->token;
                     header("Location: /logrofilm/paginas/pagina_principal");
                     $modelo2->setDestinatario($_POST["email"]);

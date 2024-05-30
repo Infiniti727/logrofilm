@@ -1,6 +1,7 @@
 <?php
 
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
 class API extends Controlador{
 
@@ -190,12 +191,14 @@ class API extends Controlador{
      * la cabecera es correcta, pero en esta ocasión devolverá un token adicional (JWT), que será transportado
      * en el resto de peticiones mediante autenticación Bearer.
      */
-    public function getTokenJWT(){
-        $check = $this->basicAuthorization();
+    public function getTokenJWT($valores){
+        $lista = explode("_",$valores,2);
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        $check = $this->basicAuthorization($lista[0],$lista[1]);
         if ($check){
             header("Content-Type: application/json', 'HTTP/1.1 200 OK");
             $array = array();
-            $array["token"] = $this->getJWT(self::DATA);
+            $array["token"] = $this->getJWT(self::DATA,$lista[0]);
             // Lo suyo sería obtener el token con datos del usuario al que se le entrega el token, si es que
             // hay usuarios personalizados. Si es un servicio general, se le entrega un dato genérico para todos
             // Se transporta el token para ser reenviado en posteriores llamadas al API Rest
@@ -212,7 +215,8 @@ class API extends Controlador{
      * en el resto de peticiones mediante autenticación Bearer.
      */
     public function getTokenSimple(){
-        $check = $this->basicAuthorization();
+        $data = json_decode(file_get_contents("php://input"));
+        $check = $this->basicAuthorization($data->usuario,$data->contra);
         if ($check){
             header("Content-Type: application/json', 'HTTP/1.1 200 OK");
             $array = array();
@@ -260,18 +264,23 @@ class API extends Controlador{
         return null;
     }
     
-    private function basicAuthorization(){
-
-        if ((isset($_SERVER['PHP_AUTH_USER'])) && (isset($_SERVER['PHP_AUTH_PW']))) {
-            if (($_SERVER['PHP_AUTH_USER'] == "111") && ($_SERVER['PHP_AUTH_PW'] == "222")) {
-                return true;
+    private function basicAuthorization($usuario,$contra){
+            $usuario_no_existe = true;
+            $petition = $this->modelo->obtenerUsuarios();
+            foreach ($petition as $row) {
+                if($usuario == $row->nombre){
+                    $usuario_no_existe = false;
+                    if($contra == $row->contraseña){
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
             }
-            else {
+            if($usuario_no_existe){
                 return false;
             }
-        }else{
-            return false;
-        }
+         
     }
     
     private function tokenAuthorization(){
@@ -298,21 +307,35 @@ class API extends Controlador{
     // En el frontal index.php se incluye 'require("./vendor/autoload.php");'
     // En esta clase se incluye 'use Firebase\JWT\JWT;'
     // URL tutorial: https://anexsoft.com/implementacion-de-json-web-token-con-php
-    private function getJWT($data){ 
+    private function getJWT($data,$usuario){ 
         $time = time();      
-        $token = array(
-            'iat' => $time, // Tiempo que inició el token
-            'exp' => $time + (60*60), // Tiempo que expirará el token (+1 hora)
-            'data' => [ // información del usuario o lo que consideremos necesario incluir
-                'idUser' => 1, // Se obtendría de BD si hay usuarios personalizados
-                'passwordUser' => '222', // Se obtendría de BD si hay usuarios personalizados
-                'passwordToken' => $data // Para usuarios genéricos
-            ]
-        );     
-        $jwt = JWT::encode($token, $this->key, "HS256"); 
-        return $jwt;
+        $petition = $this->modelo->obtenerUsuarios();
+            foreach ($petition as $row) {
+                if($usuario == $row->nombre){
+                    $token = array(
+                        'iat' => $time, // Tiempo que inició el token
+                        'exp' => $time + (60*60), // Tiempo que expirará el token (+1 hora)
+                        'data' => [ // información del usuario o lo que consideremos necesario incluir
+                            'idUser' => $row->id, // Se obtendría de BD si hay usuarios personalizados
+                            'passwordUser' => $row->contraseña, // Se obtendría de BD si hay usuarios personalizados
+                            'passwordToken' => $data // Para usuarios genéricos
+                        ]
+                    );     
+                    $jwt = JWT::encode($token, $this->key, "HS256"); 
+                    return $jwt;
+                }
+                }
+        
         //$data = JWT::decode($jwt, $key, array('HS256')); // Si ha expirado dará un error
         //var_dump($jwt);
         //var_dump($data);
+    }
+
+
+    function checkJWT($jwt){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        if(JWT::decode($jwt, new Key($this->key, 'HS256')) ){
+            echo true;
+        }
     }
 }

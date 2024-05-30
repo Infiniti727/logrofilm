@@ -45,9 +45,12 @@
                         $_SESSION["password"] = $_POST["contraseña"];
                         $_SESSION["id"] = $this->CallAPI("GET","http://localhost/logrofilm/API/getIdUsuario/".$_POST["usuario"]);
                         $_SESSION["email"] = $this->CallAPI("GET","http://localhost/logrofilm/API/getEmail/".$_POST["usuario"]);
+                        $_SESSION["key"] = $this->CallAPI("GET","http://localhost/logrofilm/API/getTokenJWT/".$_POST["usuario"]."_".$_POST["contraseña"])->token;
                         if($this->CallAPI("GET","http://localhost/logrofilm/API/getAdmin/".$_POST["usuario"])){
                             $_SESSION["admin"] = true;
                         }
+
+
                         header('Location: /logrofilm/paginas/pagina_principal');
                     } else {
                         header("Location: /logrofilm/paginas/error/");
@@ -76,9 +79,11 @@
                     $_SESSION['username'] = $_POST["usuario"];
                     $_SESSION["password"] = $_POST["contraseña"];
                     $_SESSION["email"] = $_POST["email"];
+                    $_SESSION["key"] = $this->CallAPI("GET","http://localhost/logrofilm/API/getTokenJWT/".$_POST["usuario"]."_".$_POST["contraseña"])->token;
+                    header("Location: /logrofilm/paginas/pagina_principal");
                     $modelo2->setDestinatario($_POST["email"]);
                     $modelo2->enviar();
-                    header("Location: /logrofilm/paginas/pagina_principal");
+                   
                 } else {
                     header("Location: /logrofilm/paginas/sing_up/error2");
                 }
@@ -178,10 +183,17 @@
             
 
             $datos = [
+                "asd" => $_SESSION["key"]
             ];
 
             if(isset($_SESSION['username'])){
-                $this->vista('paginas/pagina_principal', $datos); 
+                if($this->CallAPI("GET","http://localhost/logrofilm/API/checkJWT/".$_SESSION["key"]) == 1)
+                    {
+                        $this->vista('paginas/pagina_principal', $datos); 
+                }else {
+                    header("Location: /logrofilm/paginas/cerrar/");
+                }
+                   
                 
             } else {
                 header("Location: /logrofilm/paginas/");
@@ -195,20 +207,31 @@
         }
 
         public function panel(){
+            if($this->CallAPI("GET","http://localhost/logrofilm/API/checkJWT/".$_SESSION["key"]) == 1){
             $this->vista('paginas/panel_control'); 
+            }else {
+                header("Location: /logrofilm/paginas/cerrar/");
+            }
         }
 
         public function panelU(){
-            
+            if($this->CallAPI("GET","http://localhost/logrofilm/API/checkJWT/".$_SESSION["key"]) == 1){
             $datos = [
                 'usuarios' => $this->CallAPI("GET","http://localhost/logrofilm/API/getUsuarios/")
             ];
 
             $this->vista('paginas/panel_usuarios', $datos); 
+        }else {
+            header("Location: /logrofilm/paginas/cerrar/");
+        }
         }
 
         public function panelP(){
+            if($this->CallAPI("GET","http://localhost/logrofilm/API/checkJWT/".$_SESSION["key"]) == 1){
             $this->vista('paginas/panel_peliculas'); 
+        }else {
+            header("Location: /logrofilm/paginas/cerrar/");
+        }
         }
 
         public function cerrar(){
@@ -228,11 +251,15 @@
         }
 
         public function formP($id){
+            if($this->CallAPI("GET","http://localhost/logrofilm/API/checkJWT/".$_SESSION["key"]) == 1){
             $datos = [
                 "id" => $id
             ];
 
             $this->vista('paginas/formulario_peliculas',$datos);
+        }else {
+            header("Location: /logrofilm/paginas/cerrar/");
+        }
         }
 
         public function anadirP(){
@@ -240,7 +267,7 @@
         }
 
         public function peli($id){
-
+            if($this->CallAPI("GET","http://localhost/logrofilm/API/checkJWT/".$_SESSION["key"]) == 1){
             $peli =$this->CallAPI("GET","http://localhost/logrofilm/API/obtenerPeliculaID/".$id);
             $datos = [
                 "id" => $id,
@@ -257,23 +284,34 @@
                 "media" => $this->CallAPI("GET","http://localhost/logrofilm/API/obtenerRatingPeli/".$id),
             ];
             $this->vista('paginas/peli', $datos);
+        }else {
+            header("Location: /logrofilm/paginas/cerrar/");
+        }
         }
 
         public function usuario($id){
-
+            if($this->CallAPI("GET","http://localhost/logrofilm/API/checkJWT/".$_SESSION["key"]) == 1){
             $usuario =$this->CallAPI("GET","http://localhost/logrofilm/API/getUsuarioId/".$id);
             $datos = [
                 "id" => $id,
                 "nombre" => $usuario->nombre,
             ];
             $this->vista('paginas/usuario', $datos);
+        }else {
+            header("Location: /logrofilm/paginas/cerrar/");
+        }
         }
 
         public function cines(){
+            if($this->CallAPI("GET","http://localhost/logrofilm/API/checkJWT/".$_SESSION["key"]) == 1){
             $this->vista('paginas/cines');
+        }else {
+            header("Location: /logrofilm/paginas/cerrar/");
+        }
         }
 
         public function subirComentario($id_peli){
+            if($this->CallAPI("GET","http://localhost/logrofilm/API/checkJWT/".$_SESSION["key"]) == 1){
             $datos = [
                 "id_peli" => $id_peli,
                 "id_usuario" => $this->CallAPI("GET","http://localhost/logrofilm/API/getIdUsuario/".$_SESSION["username"]),
@@ -288,6 +326,9 @@
             
             header("Location: /logrofilm/paginas/peli/".$id_peli);
             //header("Location: /logrofilm/paginas/panelP/");
+        }else {
+            header("Location: /logrofilm/paginas/cerrar/");
+        }
         }
 
         private function CallAPI($method, $url, $data = null){
